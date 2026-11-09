@@ -1,0 +1,9 @@
+# 本机用的项目规矩和笔记，不上传
+AGENTS.md
+CLAUDE.md
+说明.md
+交接说明.md
+.claude/
+__pycache__/
+.venv/
+.DS_Store
