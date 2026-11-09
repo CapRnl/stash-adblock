@@ -1,4 +1,4 @@
-# 生成：2026-11-08，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://yfamilys.com/stoverride/biliad.stoverride
+# 生成：2026-11-08，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
 name: 去广告（秋风＋墨鱼去开屏＋B站）
 desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-08；已去掉来源无法核实的脚本）。
 rule-providers:
@@ -525,16 +525,19 @@ http:
   - page-info.zhihu.com
   - web-render.zhihu.com
   - magev6.if.qidian.com
-  - app.bilibili.com
+  - biliverse.github.io
+  - manga.bilibili.com
   - api.live.bilibili.com
   - api.vc.bilibili.com
+  - app.bilibili.com
+  - app.biliapi.net
+  - app.biliapi.com
   - api.bilibili.com
-  - manga.bilibili.com
-  - grpc.biliapi.net
   - api.biliapi.net
-  - -broadcast.chat.bilibili.com
-  - -*cdn*.biliapi.net
-  - -*tracker*.biliapi.net
+  - grpc.biliapi.net
+  - cm.bilibili.com
+  - adtrack.qianwen.com
+  - tkio-redirect.solar-engine.com
   url-rewrite:
   - ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul - reject-200
   - ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul - reject-200
@@ -1102,21 +1105,23 @@ http:
   - ^https?:\/\/api\.zhihu\.com\/api\/v4\/ecom_data\/config - reject-dict
   - ^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/tag_config - reject-dict
   - ^https?:\/\/api\.zhihu\.com\/content-distribution-core\/sections\/ - reject-dict
-  - ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
-  - ^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/Default - reject
-  - ^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity - reject-dict
-  - ^https://app.bilibili.com/x/v2/splash/show - reject-dict
-  - ^https://app.bilibili.com/x/v2/search/defaultwords - reject-dict
-  - ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report - reject-dict
-  - ^https://api.bilibili.com/pgc/season/player/cards - reject-dict
-  - ^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words - reject
+  - ^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words - reject-dict
   - ^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr - reject-dict
-  - ^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\? - reject-dict
-  - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash) - reject-dict
+  - ^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/mix_uplist - reject-dict
+  - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash - reject-dict
+  - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash - reject-dict
+  - ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
   body-rewrite:
   - ^https?:\/\/api\.qeeniao\.com\/nap\/ad response-jq .data={}
   - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba.*mytab response-jq .data.model.children |= map(select(.name | contains("营销") | not))
   - ^https?:\/\/api\.weibo\.cn\/\d\/ug\/checkin\/stream response-jq .items |= map(select(.category != "card"))
+  mock:
+  - match: ^https?:\/\/(grpc\.biliapi\.net|app\.biliapi\.net|app\.bilibili\.com|app\.biliapi\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$
+    base64: AAAAAAA=
+    status-code: 200
+    headers:
+      Content-Type: application/grpc
+      grpc-status: '0'
   script:
   - match: ^https?:\/\/s-api.smzdm\.com\/sou\/search_default_keyword
     name: APPqidongyequguanggao1
@@ -1873,81 +1878,95 @@ http:
     type: response
     require-body: true
     timeout: 10
-  - match: ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$
-    name: bilibiliquguanggao1
+  - match: ^https:\/\/(?:biliverse\.github\.io|app\.bilibili\.com)\/api\/ADBlock(?:\?.*)?$
+    name: PreferencePanes.Config.ADBlock
+    type: request
+    require-body: false
+  - match: ^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/feed\/index\?
+    name: 📺 BiliBili.ADBlock.request.json
+    type: request
+    require-body: false
+    argument: null
+  - match: ^https?:\/\/(cm\.bilibili\.com\/cm\/api\/(conversion\/mobile\/v2|fees\/wise)|adtrack\.qianwen\.com\/v3\/ad\/(show\/)?bilibili|tkio-redirect\.solar-engine\.com\/receive\/turl\/)
+    name: 📺 BiliBili.ADBlock.request.json
+    type: request
+    require-body: false
+    argument: null
+  - match: ^https?:\/\/app\.bili(bili\.com|api\.net)\/x\/v2\/(splash\/(brand\/list|event\/list2|list|show)|feed\/index(\/(relate\/)?story)?|search\/square)
+    name: 📺 BiliBili.ADBlock.response.json
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?
-    name: bilibiliquguanggao2
+    argument: null
+  - match: ^https?:\/\/api\.bili(bili\.com|api\.net)\/x\/(web-interface\/wbi\/index\/top\/feed\/rcmd|vip\/ads\/materials)\?
+    name: 📺 BiliBili.ADBlock.response.json
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list
-    name: bilibiliquguanggao3
+    argument: null
+  - match: ^https?:\/\/api\.bili(bili\.com|api\.net)\/pgc\/page\/(bangumi|cinema\/tab\?)
+    name: 📺 BiliBili.ADBlock.response.json
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?
-    name: bilibiliquguanggao4
+    argument: null
+  - match: ^https?:\/\/api\.live\.bilibili\.com\/xlive\/(app-room\/v1\/index\/getInfoByRoom|app-interface\/v2\/(index\/feed|room\/recList))
+    name: 📺 BiliBili.ADBlock.response.json
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?
-    name: bilibiliquguanggao5
+    argument: null
+  - match: ^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.(view\.v1\.View\/(View|TFInfo|RelatesFeed|PlayerRelates|ViewProgress)|viewunite\.v1\.View\/(View|RelatesFeed|AIRelateAsync|ViewProgress|PlayPause|ViewEndPage)|playerunite\.v1\.Player\/PlayViewUnite)$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https://app.bilibili.com/x/v2/search/square
-    name: bilibiliquguanggao6
+    binary-mode: true
+    max-size: 262144
+    argument: null
+  - match: ^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)(Personal)?$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index
-    name: bilibiliquguanggao7
+    binary-mode: true
+    argument: null
+  - match: ^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.playurl\.v1\.PlayURL\/PlayView$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi
-    name: bilibiliquguanggao8
+    binary-mode: true
+    argument: null
+  - match: ^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom
-    name: bilibiliquguanggao9
+    binary-mode: true
+    argument: null
+  - match: ^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile)
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/dynamic_(history|new)\?
-    name: bilibiliquguanggao10
+    binary-mode: true
+    argument: null
+  - match: ^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab
-    name: bilibiliquguanggao11
+    binary-mode: true
+    argument: null
+  - match: ^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.main\.community\.reply\.v1\.Reply\/(MainList|DetailList|ReplyInfo)$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine
-    name: bilibiliquguanggao12
+    binary-mode: true
+    argument: null
+  - match: ^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.main\.community\.reply\.v2\.Reply\/SubjectDescription$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$
-    name: bilibiliquguanggao13
+    binary-mode: true
+    argument: null
+  - match: ^https:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.pgc\.gateway\.player\.v2\.PlayURL\/PlayView$
+    name: 📺 BiliBili.ADBlock.response.grpc
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$
-    name: bilibiliquguanggao14
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$
-    name: bilibiliquguanggao15
-    type: response
-    require-body: true
-    timeout: 10
+    binary-mode: true
+    argument: null
 script-providers:
   APPqidongyequguanggao1:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
@@ -2316,37 +2335,37 @@ script-providers:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
   APPqidongyequguanggao139:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/rrtv_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
   APPqidongyequguanggao140:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/rrtv_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
   APPqidongyequguanggao141:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/rrtv_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
   APPqidongyequguanggao142:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/rrtv_json.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
   APPqidongyequguanggao143:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
   APPqidongyequguanggao144:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
   APPqidongyequguanggao145:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
   APPqidongyequguanggao146:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
   APPqidongyequguanggao147:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
   APPqidongyequguanggao148:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
   APPqidongyequguanggao149:
-    url: https://github.com/ddgksf2013/Scripts/raw/master/pixivAds.js
+    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pixivAds.js
     interval: 86400
   APPqidongyequguanggao150:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
@@ -2402,48 +2421,15 @@ script-providers:
   APPqidongyequguanggao167:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js
     interval: 86400
-  bilibiliquguanggao1:
-    url: https://github.com/deezertidal/private/raw/master/js-backup/Rewrite/Function/Bilibili_CC.conf
+  PreferencePanes.Config.ADBlock:
+    url: https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/config.bundle.js
     interval: 86400
-  bilibiliquguanggao2:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+  📺 BiliBili.ADBlock.request.json:
+    url: https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/request.bundle.js
     interval: 86400
-  bilibiliquguanggao3:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
+  📺 BiliBili.ADBlock.response.json:
+    url: https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
     interval: 86400
-  bilibiliquguanggao4:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao5:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao6:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao7:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao8:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao9:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao10:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao11:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao12:
-    url: https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/bilibili_json.js
-    interval: 86400
-  bilibiliquguanggao13:
-    url: https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
-    interval: 86400
-  bilibiliquguanggao14:
-    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js
-    interval: 86400
-  bilibiliquguanggao15:
-    url: https://github.com/deezertidal/private/raw/master/js-backup/Rewrite/Function/Bilibili_CC.conf
+  📺 BiliBili.ADBlock.response.grpc:
+    url: https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/response.bundle.js
     interval: 86400

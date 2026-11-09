@@ -4,26 +4,30 @@
 合成一份 Stash 覆写：
   1. 秋风广告规则（GitHub TG-Twilight/AWAvenue-Ads-Rule，Clash 完整版）：只写引用地址，
      Stash 每 24 小时自己去 GitHub 取最新名单，命中的广告域名直接拒绝（不需要证书）。
-  2. 下列上游覆写（deezertidal/stash-override 转制，发布在 yfamilys.com）的当天快照合并：
-     - 墨鱼「APP启动页去广告」：约 170 个 App 的开屏广告（不含 B 站）
-     - 「哔哩哔哩去广告」：B 站开屏、信息流等
+  2. 下列上游覆写的当天版本合并：
+     - 墨鱼「APP启动页去广告」（deezertidal/stash-override 转制，发布在 yfamilys.com）：约 170 个 App 的开屏广告（不含 B 站）
+     - Biliverse（原 BiliUniverse）「BiliBili ADBlock」的 Stash 版（GitHub 发布页最新版）：B 站开屏、信息流等
+       （11-08 换掉了 deezertidal 的「哔哩哔哩去广告」：它的 15 个脚本里 13 个地址已 404）
      只保留脚本来源可核实的：GitHub 仓库原文件，以及 blackmatrix7、ddgksf2013 两位作者的 gist；
-     其余来源（如匿名的 Cloudflare Worker）的脚本连同引用一并去掉。
+     其余来源（如匿名的 Cloudflare Worker）的脚本连同引用一并去掉；地址已失效（404/410）的脚本也去掉。
 
 用法：<装了 PyYAML 的 python3> -I build_override.py [输出文件，默认 adblock.stoverride]
 仓库里的 .github/workflows/build.yml 每天运行一次，内容有变化就提交；Stash 按网址自动更新。
 """
 import collections
+import concurrent.futures
+import urllib.error
 import datetime
 import re
 import sys
+import time
 import urllib.request
 
 import yaml
 
 UPSTREAMS = [
     ('墨鱼启动页去广告', 'https://yfamilys.com/stoverride/startingad.stoverride'),
-    ('B站去广告', 'https://yfamilys.com/stoverride/biliad.stoverride'),
+    ('B站去广告', 'https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride'),
 ]
 QIUFENG = ('https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/'
            'Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml')
@@ -31,10 +35,17 @@ TRUSTED_GIST_OWNERS = {'blackmatrix7', 'ddgksf2013'}
 NAME = '去广告（秋风＋墨鱼去开屏＋B站）'
 
 
-def fetch(url):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Stash/3.3 Clash/1.11'})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read().decode('utf-8')
+def fetch(url, tries=4):
+    """GitHub 发布页偶尔回 5xx，重试几次再放弃。"""
+    for i in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Stash/3.3 Clash/1.11'})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return r.read().decode('utf-8')
+        except (urllib.error.URLError, TimeoutError) as e:
+            if i == tries - 1 or (isinstance(e, urllib.error.HTTPError) and e.code < 500):
+                raise
+            time.sleep(5 * (i + 1))
 
 
 def source_of(url):
@@ -50,6 +61,26 @@ def source_of(url):
     return False, host
 
 
+def to_raw(url):
+    """github.com/<作者>/<仓库>/raw/<分支>/<路径> 改成 raw.githubusercontent.com 直链：
+    github.com 跳转偶尔 504，手机上这类脚本常下载失败（11-08 在 Stash「最近请求」里看到 0 B）。"""
+    m = re.match(r'^https://github\.com/([^/]+)/([^/]+)/(?:raw|blob)/(.+?)(?:\?raw=true)?$', url or '')
+    return f'https://raw.githubusercontent.com/{m.group(1)}/{m.group(2)}/{m.group(3)}' if m else url
+
+
+def is_dead(url):
+    """只有明确 404/410 才算失效；超时、5xx 之类的临时错误不算，免得误删。"""
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Stash/3.7', 'Range': 'bytes=0-1023'})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            r.read(1024)
+        return False
+    except urllib.error.HTTPError as e:
+        return e.code in (404, 410)
+    except Exception:
+        return False
+
+
 def add_unique(dst, items):
     seen = set(map(str, dst))
     for x in items or []:
@@ -59,7 +90,7 @@ def add_unique(dst, items):
 
 
 def main(out_path):
-    mitm, rewrite, body_rewrite, scripts, providers = [], [], [], [], {}
+    mitm, rewrite, body_rewrite, mock, scripts, providers = [], [], [], [], [], {}
     report = []
     for label, url in UPSTREAMS:
         data = yaml.safe_load(fetch(url))
@@ -72,6 +103,7 @@ def main(out_path):
             if not ok:
                 dropped.add(name)
                 continue
+            conf = dict(conf, url=to_raw(conf.get('url')))
             new = name
             while new in providers and providers[new] != conf:
                 new = f'{label}-{new}'
@@ -88,16 +120,27 @@ def main(out_path):
         add_unique(rewrite, http.get('url-rewrite'))
         add_unique(rewrite, http.get('rewrite'))  # 上游用的旧键名，输出时改成 Stash 文档的 url-rewrite
         add_unique(body_rewrite, http.get('body-rewrite'))
+        add_unique(mock, http.get('mock'))
         scripts.extend(kept)
-        rw = http.get('rewrite', []) or []
+        rw = (http.get('url-rewrite') or []) + (http.get('rewrite') or [])
         report.append(f'{label}: 解密 {len(http.get("mitm", []) or [])}，改写 {len(rw)} '
                       f'{dict(collections.Counter(r.split()[-1] for r in rw if isinstance(r, str) and r.split()))}，'
                       f'脚本保留 {len(kept)}、去掉 {len(http.get("script", []) or []) - len(kept)}，来源 {dict(src_count)}')
+
+    # 去掉地址已失效的脚本来源，连同引用它的脚本
+    with concurrent.futures.ThreadPoolExecutor(16) as ex:
+        dead = {n for n, d in zip(providers, ex.map(is_dead, (c.get('url') for c in providers.values()))) if d}
+    if dead:
+        report.append(f'地址已失效、去掉的脚本来源 {len(dead)} 个：' + '、'.join(sorted({providers[n]["url"] for n in dead})))
+        scripts = [s for s in scripts if s.get('name') not in dead]
+        providers = {n: c for n, c in providers.items() if n not in dead}
 
     today = datetime.date.today().isoformat()
     http_out = {'mitm': mitm, 'url-rewrite': rewrite}
     if body_rewrite:
         http_out['body-rewrite'] = body_rewrite
+    if mock:
+        http_out['mock'] = mock
     http_out['script'] = scripts
     # 安装走「从 URL 安装」：剪贴板粘贴约 5000 字处会被截断（11-08 实测），整份文件不能靠粘贴
     out = {
@@ -132,7 +175,7 @@ def main(out_path):
     print('输出:', out_path)
     for line in report:
         print(' ', line)
-    print('合计: 解密主机', len(mitm), '| 改写', len(rewrite), '| 响应体改写', len(body_rewrite),
+    print('合计: 解密主机', len(mitm), '| 改写', len(rewrite), '| 响应体改写', len(body_rewrite), '| 模拟响应', len(mock),
           '| 脚本', len(scripts), '| 脚本来源', len(providers))
     print('改写里的跳转（302/307）:', redirects[:5] if redirects else '无')
     print('秋风名单可取到:', qf.count('\n  - '), '条')
