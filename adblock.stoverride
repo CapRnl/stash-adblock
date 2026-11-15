@@ -1,6 +1,6 @@
-# 生成：2026-11-14，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
+# 生成：2026-11-15，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
 name: 去广告（秋风＋墨鱼去开屏＋B站）
-desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-14；已去掉来源无法核实的脚本）。
+desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-15；已去掉来源无法核实的脚本）。
 rule-providers:
   AWAvenue-Ads:
     behavior: classical
@@ -830,7 +830,6 @@ http:
   - ^https?:\/\/app\.yuebuy\.cn\/api\/Portal\/startUp - reject
   - https://ios.sspai.com/api/v3/recommend/page/get\?ad.*ios_home_modal - reject-200
   - ^https://mapi.sfbest.com\/brokerservice-server\/cms\/getPositionById.* - reject-200
-  - ^https?://spclient.wg.spotify.com/(ad-logic|ads|.+ad_slot|.+banners|.+canvases|.+cards|.+crashlytics|.+doubleclick.net|.+enabled-tracks|.+promoted_offer) - reject-img
   - ^https?:\/\/api\d?\.musical\.ly\/api\/ad\/ - reject-img
   - https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig - reject-200
   - ^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appVersion\/detectionUpgrade - reject-200
@@ -1165,6 +1164,24 @@ http:
   - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash - reject-dict
   - ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
   body-rewrite:
+  - https://beta-api.crunchyroll.com/cms response-replace-regex offset_ms":\d+ offset_ms":99999999999999
+  - ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/getAd response-replace-regex rt_time":\d{2} rt_time":40
+  - ^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist response-replace-regex adv ddgksf2013
+  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising response-replace-regex jdLiteAdvertisingVO ddgksf2013
+  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush response-replace-regex pushData ddgksf2013
+  - ^https?:\/\/res.kfc.com.cn\/CRM\/kfcad\/apphome6\/apphome.*json response-replace-regex bootStrapAd ddgksf2013
+  - ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx response-replace-regex splashAD ddgksf2013
+  - ^https?:\/\/careapi\.oclean\.com\/mall\/v\d\/User\/GetUserCenter response-replace-regex banner" ddgksf2013"
+  - ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v response-replace-regex launch_time_close":\d+ launch_time_close":1660716799999
+  - ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen response-replace-regex egin_time":"\d{4} egin_time":"2099
+  - ^https?:\/\/tft-app\.cdtft\.cn\/gateway-customer\/tftapp\/tft-ams\/api\/appAd response-replace-regex officialAdvertResultVo ddgksf2013
+  - '^https?:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*/builds/\d*/install request-replace-regex "storefrontId\" : \".*\"" "storefrontId\" : \"143441-1,29\""'
+  - ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad response-replace-regex advertisement ddgksf2013
+  - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace-regex screenSplashAd ddgksf2013
+  - ^https?:\/\/apps\.workair\.cn\/app\/version response-replace-regex ads" ddgksf2013"
+  - ^https:\/\/gw\.xiaocantech\.com\/rpc response-replace-regex "vip_pop_up":0 "vip_pop_up":2
+  - ^(http|https):\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad response-replace-regex advertisement ddgksf2013
+  - ^http?:\/\/wallpaper.soutushenqi.com\/v\d\/config request-replace-regex config_key=stsq_ios_home_vipI config_key=
   - ^https?:\/\/api\.qeeniao\.com\/nap\/ad response-jq .data={}
   - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba.*mytab response-jq .data.model.children |= map(select(.name | contains("营销") | not))
   - ^https?:\/\/api\.weibo\.cn\/\d\/ug\/checkin\/stream response-jq .items |= map(select(.category != "card"))
@@ -1211,782 +1228,787 @@ http:
       grpc-status: '0'
   script:
   - match: ^https?:\/\/s-api.smzdm\.com\/sou\/search_default_keyword
-    name: APPqidongyequguanggao1
+    name: APP启动页去广告1
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/app-api\.smzdm\.com\/util\/loading
-    name: APPqidongyequguanggao2
+    name: APP启动页去广告2
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise
-    name: APPqidongyequguanggao3
+    name: APP启动页去广告3
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home
-    name: APPqidongyequguanggao4
+    name: APP启动页去广告4
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/haojia-api\.smzdm\.com\/home\/list
-    name: APPqidongyequguanggao5
+    name: APP启动页去广告5
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/article_releated_modul
-    name: APPqidongyequguanggao6
+    name: APP启动页去广告6
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/baike-api\.smzdm\.com\/home_v3\/list
-    name: APPqidongyequguanggao7
+    name: APP启动页去广告7
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/s-api\.smzdm\.com\/sou\/list_v10
-    name: APPqidongyequguanggao8
+    name: APP启动页去广告8
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags
-    name: APPqidongyequguanggao9
+    name: APP启动页去广告9
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/zhiyou\.m\.smzdm\.com\/user\/vip\/ajax_get_banner
-    name: APPqidongyequguanggao10
+    name: APP启动页去广告10
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.369cx\.cn\/v\d\/Splash\/GetSplashAd
-    name: APPqidongyequguanggao11
+    name: APP启动页去广告11
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
-    name: APPqidongyequguanggao12
+    name: APP启动页去广告12
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/www\.123pan\.com\/s\/[0-9a-zA-Z=_/-]+\.html
-    name: APPqidongyequguanggao13
+    name: APP启动页去广告13
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
-    name: APPqidongyequguanggao14
+    name: APP启动页去广告14
     type: response
     require-body: true
     timeout: 10
   - match: ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
-    name: APPqidongyequguanggao15
+    name: APP启动页去广告15
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$)
-    name: APPqidongyequguanggao16
+    name: APP启动页去广告16
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads
-    name: APPqidongyequguanggao17
+    name: APP启动页去广告17
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/audit\/home\/getCommonMixData
-    name: APPqidongyequguanggao18
+    name: APP启动页去广告18
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362
-    name: APPqidongyequguanggao19
+    name: APP启动页去广告19
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1
-    name: APPqidongyequguanggao20
+    name: APP启动页去广告20
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*umetrip\.com\.cn\/gateway\/api\/umetrip\/native$
-    name: APPqidongyequguanggao21
+    name: APP启动页去广告21
     type: response
     require-body: false
     timeout: 10
   - match: ^https?:\/\/.*cupid\.iqiyi\.com\/mixer\?
-    name: APPqidongyequguanggao22
+    name: APP启动页去广告22
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/napi\.ithome\.com\/api\/news\/indexv\d\/iphone
-    name: APPqidongyequguanggao23
+    name: APP启动页去广告23
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show
-    name: APPqidongyequguanggao24
+    name: APP启动页去广告24
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms)
-    name: APPqidongyequguanggao25
+    name: APP启动页去广告25
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.coolapk\.com\/v6\/(feed\/(replyList|detail)|main\/indexV8|dataList)
-    name: APPqidongyequguanggao26
+    name: APP启动页去广告26
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
-    name: APPqidongyequguanggao27
+    name: APP启动页去广告27
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms
-    name: APPqidongyequguanggao28
+    name: APP启动页去广告28
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/mobilepaas\.abchina\.com\.cn:441\/mgw\.htm
-    name: APPqidongyequguanggao29
+    name: APP启动页去广告29
     type: response
     require-body: false
     timeout: 10
   - match: ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position
-    name: APPqidongyequguanggao30
+    name: APP启动页去广告30
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.jk\.cn\/m\.api
-    name: APPqidongyequguanggao31
+    name: APP启动页去广告31
     type: response
     require-body: false
     timeout: 10
   - match: ^https?:\/\/apps\.teamair\.cn\/app\/version
-    name: APPqidongyequguanggao32
+    name: APP启动页去广告32
     type: response
     require-body: true
     timeout: 10
   - match: https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow
-    name: APPqidongyequguanggao33
+    name: APP启动页去广告33
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$
-    name: APPqidongyequguanggao34
+    name: APP启动页去广告34
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise
-    name: APPqidongyequguanggao35
+    name: APP启动页去广告35
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/apiproxy\.zuche\.com\/resource\/cardes\/toufang\/marketing
-    name: APPqidongyequguanggao36
+    name: APP启动页去广告36
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/commercial_api.*launch_v2
-    name: APPqidongyequguanggao37
+    name: APP启动页去广告37
     type: response
     require-body: true
     timeout: 10
   - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: APPqidongyequguanggao38
+    name: APP启动页去广告38
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list
-    name: APPqidongyequguanggao39
+    name: APP启动页去广告39
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable
-    name: APPqidongyequguanggao40
+    name: APP启动页去广告40
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart
-    name: APPqidongyequguanggao41
+    name: APP启动页去广告41
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource
-    name: APPqidongyequguanggao42
+    name: APP启动页去广告42
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page
-    name: APPqidongyequguanggao43
+    name: APP启动页去广告43
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
-    name: APPqidongyequguanggao44
+    name: APP启动页去广告44
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull
-    name: APPqidongyequguanggao45
+    name: APP启动页去广告45
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
-    name: APPqidongyequguanggao46
+    name: APP启动页去广告46
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword
-    name: APPqidongyequguanggao47
+    name: APP启动页去广告47
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do
-    name: APPqidongyequguanggao48
+    name: APP启动页去广告48
     type: response
     require-body: true
     timeout: 10
   - match: ^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2
-    name: APPqidongyequguanggao49
+    name: APP启动页去广告49
     type: response
     require-body: true
     timeout: 10
   - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: APPqidongyequguanggao50
+    name: APP启动页去广告50
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch
-    name: APPqidongyequguanggao51
+    name: APP启动页去广告51
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.homepage\.merge\.get\.cn
-    name: APPqidongyequguanggao52
+    name: APP启动页去广告52
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn
-    name: APPqidongyequguanggao53
+    name: APP启动页去广告53
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword
-    name: APPqidongyequguanggao54
+    name: APP启动页去广告54
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/biz\.cyapi\.cn\/api\/v\d\/user_detail
-    name: APPqidongyequguanggao55
+    name: APP启动页去广告55
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/biz\.cyapi\.cn\/v\d\/user
-    name: APPqidongyequguanggao56
+    name: APP启动页去广告56
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/wrapper\.cyapi\.cn\/v\d\/activity
-    name: APPqidongyequguanggao57
+    name: APP启动页去广告57
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.caiyunapp\.com\/v\d\/activity
-    name: APPqidongyequguanggao58
+    name: APP启动页去广告58
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/homefeatures
-    name: APPqidongyequguanggao59
+    name: APP启动页去广告59
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/notification/message_center
-    name: APPqidongyequguanggao60
+    name: APP启动页去广告60
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/config/cypage
-    name: APPqidongyequguanggao61
+    name: APP启动页去广告61
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/feeds
-    name: APPqidongyequguanggao62
+    name: APP启动页去广告62
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/banners
-    name: APPqidongyequguanggao63
+    name: APP启动页去广告63
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/features
-    name: APPqidongyequguanggao64
+    name: APP启动页去广告64
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/campaigns
-    name: APPqidongyequguanggao65
+    name: APP启动页去广告65
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/sapphire\.api\.microsoftapp\.net\/config\/api\/v1\/get
-    name: APPqidongyequguanggao66
+    name: APP启动页去广告66
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$
-    name: APPqidongyequguanggao67
+    name: APP启动页去广告67
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic
-    name: APPqidongyequguanggao68
+    name: APP启动页去广告68
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/course
-    name: APPqidongyequguanggao69
+    name: APP启动页去广告69
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/home\/framework\/tab
-    name: APPqidongyequguanggao70
+    name: APP启动页去广告70
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show
-    name: APPqidongyequguanggao71
+    name: APP启动页去广告71
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/rcmd\/resource\/show
-    name: APPqidongyequguanggao72
+    name: APP启动页去广告72
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ios\/upgrade\/get
-    name: APPqidongyequguanggao73
+    name: APP启动页去广告73
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/default\/keyword\/list
-    name: APPqidongyequguanggao74
+    name: APP启动页去广告74
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/rcmd\/keyword\/get
-    name: APPqidongyequguanggao75
+    name: APP启动页去广告75
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/list
-    name: APPqidongyequguanggao76
+    name: APP启动页去广告76
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/detail
-    name: APPqidongyequguanggao77
+    name: APP启动页去广告77
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/suggest\/keyword\/get
-    name: APPqidongyequguanggao78
+    name: APP启动页去广告78
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/specialkeyword\/get
-    name: APPqidongyequguanggao79
+    name: APP启动页去广告79
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/get
-    name: APPqidongyequguanggao80
+    name: APP启动页去广告80
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/current
-    name: APPqidongyequguanggao81
+    name: APP启动页去广告81
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/get
-    name: APPqidongyequguanggao82
+    name: APP启动页去广告82
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/position\/show\/resource
-    name: APPqidongyequguanggao83
+    name: APP启动页去广告83
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/scene\/show\/resource
-    name: APPqidongyequguanggao84
+    name: APP启动页去广告84
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vip\/cashier\/tspopup\/get
-    name: APPqidongyequguanggao85
+    name: APP启动页去广告85
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vipnewcenter\/app\/resource\/newaccountpage
-    name: APPqidongyequguanggao86
+    name: APP启动页去广告86
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/side-bar\/mini-program\/music-service\/account
-    name: APPqidongyequguanggao87
+    name: APP启动页去广告87
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/deliver
-    name: APPqidongyequguanggao88
+    name: APP启动页去广告88
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/batch-deliver
-    name: APPqidongyequguanggao89
+    name: APP启动页去广告89
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/yunbei\/account\/entrance\/get
-    name: APPqidongyequguanggao90
+    name: APP启动页去广告90
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/creator\/musician\/reminder\/message\/get
-    name: APPqidongyequguanggao91
+    name: APP启动页去广告91
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/batch
-    name: APPqidongyequguanggao92
+    name: APP启动页去广告92
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail
-    name: APPqidongyequguanggao93
+    name: APP启动页去广告93
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d
-    name: APPqidongyequguanggao94
+    name: APP启动页去广告94
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/preload
-    name: APPqidongyequguanggao95
+    name: APP启动页去广告95
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/\w{5}\/(statuses_unread_hot_timeline|timeline)
-    name: APPqidongyequguanggao96
+    name: APP启动页去广告96
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/video\/tiny_stream_mid_detail
-    name: APPqidongyequguanggao97
+    name: APP启动页去广告97
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/\w{5}\/cardlist
-    name: APPqidongyequguanggao98
+    name: APP启动页去广告98
     type: response
     require-body: true
     timeout: 10
   - match: ^https://api.weibo.cn/2/!/client/light_skin
-    name: APPqidongyequguanggao99
+    name: APP启动页去广告99
     type: response
     require-body: true
     timeout: 10
   - match: ^https://new.vip.weibo.cn/littleskin/preview
-    name: APPqidongyequguanggao100
+    name: APP启动页去广告100
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(searchall|page\?|0flowpage)
-    name: APPqidongyequguanggao101
+    name: APP启动页去广告101
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(unread_)?friends(/|_)timeline
-    name: APPqidongyequguanggao102
+    name: APP启动页去广告102
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/groups/timeline
-    name: APPqidongyequguanggao103
+    name: APP启动页去广告103
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(container_timeline|unread_hot_timeline|extend|video_mixtimeline|unread_topic_timeline)
-    name: APPqidongyequguanggao104
+    name: APP启动页去广告104
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/profile/(me|container_timeline)
-    name: APPqidongyequguanggao105
+    name: APP启动页去广告105
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/video/(community_tab|remind_info|tiny_stream_video_list)
-    name: APPqidongyequguanggao106
+    name: APP启动页去广告106
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover)
-    name: APPqidongyequguanggao107
+    name: APP启动页去广告107
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|container/get_item)
-    name: APPqidongyequguanggao108
+    name: APP启动页去广告108
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist
-    name: APPqidongyequguanggao109
+    name: APP启动页去广告109
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=open_app
-    name: APPqidongyequguanggao110
+    name: APP启动页去广告110
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=get_searching_info
-    name: APPqidongyequguanggao111
+    name: APP启动页去广告111
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic
-    name: APPqidongyequguanggao112
+    name: APP启动页去广告112
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads
-    name: APPqidongyequguanggao113
+    name: APP启动页去广告113
     type: response
     require-body: true
     timeout: 10
   - match: ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
-    name: APPqidongyequguanggao114
+    name: APP启动页去广告114
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=trends
-    name: APPqidongyequguanggao115
+    name: APP启动页去广告115
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center
-    name: APPqidongyequguanggao116
+    name: APP启动页去广告116
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic
-    name: APPqidongyequguanggao117
+    name: APP启动页去广告117
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories
-    name: APPqidongyequguanggao134
+    name: APP启动页去广告134
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic
-    name: APPqidongyequguanggao135
+    name: APP启动页去广告135
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix
-    name: APPqidongyequguanggao136
+    name: APP启动页去广告136
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category
-    name: APPqidongyequguanggao137
+    name: APP启动页去广告137
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage
-    name: APPqidongyequguanggao138
+    name: APP启动页去广告138
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/api.juxingclub.com\/ad\/getAll
-    name: APPqidongyequguanggao139
+    name: APP启动页去广告139
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.juxingclub.com\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY
-    name: APPqidongyequguanggao140
+    name: APP启动页去广告140
     type: response
     require-body: true
     timeout: 10
   - match: https://api.juxingclub.com/v3plus/index/channel\?pageNum=1&position=CHANNEL_INDEX
-    name: APPqidongyequguanggao141
+    name: APP启动页去广告141
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.juxingclub.com\/app\/config\/h5NativeBar
-    name: APPqidongyequguanggao142
+    name: APP启动页去广告142
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
-    name: APPqidongyequguanggao143
+    name: APP启动页去广告143
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.coolapk.com\/v6\/dataList
-    name: APPqidongyequguanggao144
+    name: APP启动页去广告144
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.coolapk.com\/v6\/main\/indexV8
-    name: APPqidongyequguanggao145
+    name: APP启动页去广告145
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/replyList
-    name: APPqidongyequguanggao146
+    name: APP启动页去广告146
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/detail
-    name: APPqidongyequguanggao147
+    name: APP启动页去广告147
     type: response
     require-body: true
     timeout: 10
   - match: https://api.coolapk.com/v6/page/dataList\?.*title=%E9%85
-    name: APPqidongyequguanggao148
+    name: APP启动页去广告148
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token)
-    name: APPqidongyequguanggao149
+    name: APP启动页去广告149
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/people\/
-    name: APPqidongyequguanggao150
+    name: APP启动页去广告150
     type: response
     require-body: true
     timeout: 10
+  - match: ^https?:\/\/api\.zhihu\.com\/feed-root\/block
+    name: APP启动页去广告151
+    type: request
+    require-body: true
+    timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/root\/tab\/v2
-    name: APPqidongyequguanggao151
+    name: APP启动页去广告152
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/(api|web-render)\.zhihu\.com\/topstory\/recommend
-    name: APPqidongyequguanggao152
+    name: APP启动页去广告153
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds?
-    name: APPqidongyequguanggao153
+    name: APP启动页去广告154
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/next-render
-    name: APPqidongyequguanggao154
+    name: APP启动页去广告155
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message|timeline\/entry\/system_message)
-    name: APPqidongyequguanggao155
+    name: APP启动页去广告156
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?
-    name: APPqidongyequguanggao156
+    name: APP启动页去广告157
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/(page-info|api)\.zhihu\.com\/answers\/v2\/\d+
-    name: APPqidongyequguanggao157
+    name: APP启动页去广告158
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/api\.zhihu\.com\/articles\/v\d\/\d+
-    name: APPqidongyequguanggao158
+    name: APP启动页去广告159
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/moments_v3\?
-    name: APPqidongyequguanggao159
+    name: APP启动页去广告160
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists(\?|\/)
-    name: APPqidongyequguanggao160
+    name: APP启动页去广告161
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/search\/preset_words\?
-    name: APPqidongyequguanggao161
+    name: APP启动页去广告162
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/api\.zhihu\.com\/search\/recommend_query
-    name: APPqidongyequguanggao162
+    name: APP启动页去广告163
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/api\.zhihu\.com\/settings\/blocked_users
-    name: APPqidongyequguanggao163
+    name: APP启动页去广告164
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/www\.zhihu\.com\/api\/v4\/comment_v5\/answers\/\d+\/abstract_comment\?
-    name: APPqidongyequguanggao164
+    name: APP启动页去广告165
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?)
-    name: APPqidongyequguanggao165
+    name: APP启动页去广告166
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd
-    name: APPqidongyequguanggao166
+    name: APP启动页去广告167
     type: response
     require-body: true
     timeout: 10
   - match: ^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/(deeplink\/geturl|dailyrecommend\/getdailyrecommend)|v1\/(client\/getconf$|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab))
-    name: APPqidongyequguanggao167
+    name: APP启动页去广告168
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
-    name: APPqidongyequguanggao171
+    name: APP启动页去广告172
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/gql-fed\.reddit\.com\/$
-    name: APPqidongyequguanggao172
+    name: APP启动页去广告173
     type: response
     require-body: true
     timeout: 10
   - match: ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
-    name: APPqidongyequguanggao173
+    name: APP启动页去广告174
     type: response
     require-body: true
     timeout: 10
   - match: ^https?:\/\/.*chelaile\.net\.cn\/goocity\/city!
-    name: APPqidongyequguanggao174
+    name: APP启动页去广告175
     type: response
     require-body: true
     timeout: 10
   - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: APPqidongyequguanggao177
+    name: APP启动页去广告178
     type: response
     require-body: true
     timeout: 10
@@ -2080,472 +2102,475 @@ http:
     binary-mode: true
     argument: null
 script-providers:
-  APPqidongyequguanggao1:
+  APP启动页去广告1:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao2:
+  APP启动页去广告2:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao3:
+  APP启动页去广告3:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao4:
+  APP启动页去广告4:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao5:
+  APP启动页去广告5:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao6:
+  APP启动页去广告6:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao7:
+  APP启动页去广告7:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao8:
+  APP启动页去广告8:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao9:
+  APP启动页去广告9:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao10:
+  APP启动页去广告10:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao11:
+  APP启动页去广告11:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/dict.js
     interval: 86400
-  APPqidongyequguanggao12:
+  APP启动页去广告12:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/555Ad.js
     interval: 86400
-  APPqidongyequguanggao13:
+  APP启动页去广告13:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/123pan.js
     interval: 86400
-  APPqidongyequguanggao14:
+  APP启动页去广告14:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/12306.js
     interval: 86400
-  APPqidongyequguanggao15:
+  APP启动页去广告15:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
-  APPqidongyequguanggao16:
+  APP启动页去广告16:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ahfs.js
     interval: 86400
-  APPqidongyequguanggao17:
+  APP启动页去广告17:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js
     interval: 86400
-  APPqidongyequguanggao18:
+  APP启动页去广告18:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/baishitv.js
     interval: 86400
-  APPqidongyequguanggao19:
+  APP启动页去广告19:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caixinads.js
     interval: 86400
-  APPqidongyequguanggao20:
+  APP启动页去广告20:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/fly.js
     interval: 86400
-  APPqidongyequguanggao21:
+  APP启动页去广告21:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/hanglvzongheng.js
     interval: 86400
-  APPqidongyequguanggao22:
+  APP启动页去广告22:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/iqiyi_open_ads.js
     interval: 86400
-  APPqidongyequguanggao23:
+  APP启动页去广告23:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ithome.js
     interval: 86400
-  APPqidongyequguanggao24:
+  APP启动页去广告24:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/startup.js
     interval: 86400
-  APPqidongyequguanggao25:
+  APP启动页去广告25:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/jd_json.js
     interval: 86400
-  APPqidongyequguanggao26:
+  APP启动页去广告26:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao27:
+  APP启动页去广告27:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao28:
+  APP启动页去广告28:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/quark.js
     interval: 86400
-  APPqidongyequguanggao29:
+  APP启动页去广告29:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/abchina.js
     interval: 86400
-  APPqidongyequguanggao30:
+  APP启动页去广告30:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pupumarket.js
     interval: 86400
-  APPqidongyequguanggao31:
+  APP启动页去广告31:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pinganads.js
     interval: 86400
-  APPqidongyequguanggao32:
+  APP启动页去广告32:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/qidian.js
     interval: 86400
-  APPqidongyequguanggao33:
+  APP启动页去广告33:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js
     interval: 86400
-  APPqidongyequguanggao34:
+  APP启动页去广告34:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/stay.js
     interval: 86400
-  APPqidongyequguanggao35:
+  APP启动页去广告35:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APPqidongyequguanggao36:
+  APP启动页去广告36:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/dict.js
     interval: 86400
-  APPqidongyequguanggao37:
+  APP启动页去广告37:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhihu_openads.js
     interval: 86400
-  APPqidongyequguanggao38:
+  APP启动页去广告38:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
-  APPqidongyequguanggao39:
+  APP启动页去广告39:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao40:
+  APP启动页去广告40:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao41:
+  APP启动页去广告41:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao42:
+  APP启动页去广告42:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao43:
+  APP启动页去广告43:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao44:
+  APP启动页去广告44:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao45:
+  APP启动页去广告45:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao46:
+  APP启动页去广告46:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao47:
+  APP启动页去广告47:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APPqidongyequguanggao48:
+  APP启动页去广告48:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js
     interval: 86400
-  APPqidongyequguanggao49:
+  APP启动页去广告49:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js
     interval: 86400
-  APPqidongyequguanggao50:
+  APP启动页去广告50:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
-  APPqidongyequguanggao51:
+  APP启动页去广告51:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
     interval: 86400
-  APPqidongyequguanggao52:
+  APP启动页去广告52:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
     interval: 86400
-  APPqidongyequguanggao53:
+  APP启动页去广告53:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
     interval: 86400
-  APPqidongyequguanggao54:
+  APP启动页去广告54:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
     interval: 86400
-  APPqidongyequguanggao55:
+  APP启动页去广告55:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao56:
+  APP启动页去广告56:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao57:
+  APP启动页去广告57:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao58:
+  APP启动页去广告58:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao59:
+  APP启动页去广告59:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao60:
+  APP启动页去广告60:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao61:
+  APP启动页去广告61:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao62:
+  APP启动页去广告62:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao63:
+  APP启动页去广告63:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao64:
+  APP启动页去广告64:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao65:
+  APP启动页去广告65:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APPqidongyequguanggao66:
+  APP启动页去广告66:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/bing.js
     interval: 86400
-  APPqidongyequguanggao67:
+  APP启动页去广告67:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
     interval: 86400
-  APPqidongyequguanggao68:
+  APP启动页去广告68:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
     interval: 86400
-  APPqidongyequguanggao69:
+  APP启动页去广告69:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
     interval: 86400
-  APPqidongyequguanggao70:
+  APP启动页去广告70:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao71:
+  APP启动页去广告71:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao72:
+  APP启动页去广告72:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao73:
+  APP启动页去广告73:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao74:
+  APP启动页去广告74:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao75:
+  APP启动页去广告75:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao76:
+  APP启动页去广告76:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao77:
+  APP启动页去广告77:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao78:
+  APP启动页去广告78:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao79:
+  APP启动页去广告79:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao80:
+  APP启动页去广告80:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao81:
+  APP启动页去广告81:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao82:
+  APP启动页去广告82:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao83:
+  APP启动页去广告83:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao84:
+  APP启动页去广告84:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao85:
+  APP启动页去广告85:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao86:
+  APP启动页去广告86:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao87:
+  APP启动页去广告87:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao88:
+  APP启动页去广告88:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao89:
+  APP启动页去广告89:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao90:
+  APP启动页去广告90:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao91:
+  APP启动页去广告91:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao92:
+  APP启动页去广告92:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APPqidongyequguanggao93:
+  APP启动页去广告93:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao94:
+  APP启动页去广告94:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao95:
+  APP启动页去广告95:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao96:
+  APP启动页去广告96:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao97:
+  APP启动页去广告97:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao98:
+  APP启动页去广告98:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao99:
+  APP启动页去广告99:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao100:
+  APP启动页去广告100:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao101:
+  APP启动页去广告101:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao102:
+  APP启动页去广告102:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao103:
+  APP启动页去广告103:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao104:
+  APP启动页去广告104:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao105:
+  APP启动页去广告105:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao106:
+  APP启动页去广告106:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao107:
+  APP启动页去广告107:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao108:
+  APP启动页去广告108:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao109:
+  APP启动页去广告109:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao110:
+  APP启动页去广告110:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao111:
+  APP启动页去广告111:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_info.json
     interval: 86400
-  APPqidongyequguanggao112:
+  APP启动页去广告112:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_topic.json
     interval: 86400
-  APPqidongyequguanggao113:
+  APP启动页去广告113:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao114:
+  APP启动页去广告114:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao115:
+  APP启动页去广告115:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao116:
+  APP启动页去广告116:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao117:
+  APP启动页去广告117:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APPqidongyequguanggao134:
+  APP启动页去广告134:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  APPqidongyequguanggao135:
+  APP启动页去广告135:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  APPqidongyequguanggao136:
+  APP启动页去广告136:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  APPqidongyequguanggao137:
+  APP启动页去广告137:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  APPqidongyequguanggao138:
+  APP启动页去广告138:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  APPqidongyequguanggao139:
+  APP启动页去广告139:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
-  APPqidongyequguanggao140:
+  APP启动页去广告140:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
-  APPqidongyequguanggao141:
+  APP启动页去广告141:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
-  APPqidongyequguanggao142:
+  APP启动页去广告142:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
-  APPqidongyequguanggao143:
+  APP启动页去广告143:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao144:
+  APP启动页去广告144:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao145:
+  APP启动页去广告145:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao146:
+  APP启动页去广告146:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao147:
+  APP启动页去广告147:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao148:
+  APP启动页去广告148:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APPqidongyequguanggao149:
+  APP启动页去广告149:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pixivAds.js
     interval: 86400
-  APPqidongyequguanggao150:
+  APP启动页去广告150:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao151:
+  APP启动页去广告151:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao152:
+  APP启动页去广告152:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao153:
+  APP启动页去广告153:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao154:
+  APP启动页去广告154:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao155:
+  APP启动页去广告155:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao156:
+  APP启动页去广告156:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao157:
+  APP启动页去广告157:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao158:
+  APP启动页去广告158:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao159:
+  APP启动页去广告159:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao160:
+  APP启动页去广告160:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao161:
+  APP启动页去广告161:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao162:
+  APP启动页去广告162:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao163:
+  APP启动页去广告163:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao164:
+  APP启动页去广告164:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APPqidongyequguanggao165:
+  APP启动页去广告165:
+    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
+    interval: 86400
+  APP启动页去广告166:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
     interval: 86400
-  APPqidongyequguanggao166:
+  APP启动页去广告167:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
     interval: 86400
-  APPqidongyequguanggao167:
+  APP启动页去广告168:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js
     interval: 86400
-  APPqidongyequguanggao171:
+  APP启动页去广告172:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/12306.js
     interval: 86400
-  APPqidongyequguanggao172:
+  APP启动页去广告173:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/reddit.js
     interval: 86400
-  APPqidongyequguanggao173:
+  APP启动页去广告174:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
-  APPqidongyequguanggao174:
+  APP启动页去广告175:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/chelaile.js
     interval: 86400
-  APPqidongyequguanggao177:
+  APP启动页去广告178:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
   PreferencePanes.Config.ADBlock:
