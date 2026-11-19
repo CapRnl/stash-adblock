@@ -1,6 +1,6 @@
-# 生成：2026-11-18，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
+# 生成：2026-11-19，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
 name: 去广告（秋风＋墨鱼去开屏＋B站）
-desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-18；已去掉来源无法核实的脚本）。
+desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-19；已去掉来源无法核实的脚本）。
 rule-providers:
   AWAvenue-Ads:
     behavior: classical
@@ -563,7 +563,7 @@ http:
   - ^https?:\/\/ad\.mcloud\.139\.com\/advertapi - reject-200
   - ^https?:\/\/smsrebuild1\.mail\.10086\.cn\/together\/s - reject-200
   - ^https?:\/\/app\.58\.com\/api\/home\/(advertising|appadv) - reject-200
-  - ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version$|notice\?|top_notice\?|advert\?position=[^2]+) - reject-200
+  - ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version$|notice\?|top_notice\?|advert\?(?:[^#?&]+&)*position=[^2]+) - reject-200
   - ^https?:\/\/.*5eplay\.com\/.*adv_slot - reject-200
   - ^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery - reject-200
   - ^https?:\/\/sdk\.1rtb\.net\/sdk\/req_ad - reject-200
@@ -606,11 +606,11 @@ http:
   - ^https?:\/\/app-gw\.csdn\.net\/silkroad-api\/api\/v\d\/assemble\/list\/pub\/channel\/app_open_screen_ad - reject-200
   - ^https?:\/\/api3\.cls\.cn\/v1\/boot\/ad - reject-200
   - ^https?:\/\/www\.ctm\.net\/crm_api\/.*advertise - reject-200
-  - ^https?:\/\/pinggai.*caixin\.com\/s\?z=caixin - reject-200
+  - ^https?:\/\/pinggai.*caixin\.com\/s\?(?:[^#?&]+&)*z=caixin - reject-200
   - ^https?:\/\/choicegw2.eastmoney.com\/ads\/userauth\/api\/Ad\/GetLaunchAd - reject
   - ^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init - reject-200
   - ^https?:\/\/api-tx\.dsocial\.xyz\/api\/.*\/ad_ - reject-200
-  - ^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/.*?\/v\d\/(version|top_notice\?|advert\?position=[^2]+) - reject-200
+  - ^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/.*?\/v\d\/(version|top_notice\?|advert\?(?:[^#?&]+&)*position=[^2]+) - reject-200
   - ^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash - reject-200
   - ^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-200
   - https?://res\.xiaojukeji\.com\/resapi\/activity\/mget - reject-200
@@ -620,8 +620,8 @@ http:
   - ^https:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement\/ - reject-200
   - ^https?:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d\/anime_get_question\.php - reject-dict
   - ^https?://ssp\.dzh\.com\.cn/v2api/adgroupjson - reject-200
-  - ^https?:\/\/e.dangdang.com\/media\/api.+\?action=getDeviceStartPage - reject-200
-  - ^https?:\/\/mapi\.dangdang\.com\/index\.php\?action=init - reject-200
+  - ^https?:\/\/e.dangdang.com\/media\/api.+\?(?:[^#?&]+&)*action=getDeviceStartPage - reject-200
+  - ^https?:\/\/mapi\.dangdang\.com\/index\.php\?(?:[^#?&]+&)*action=init - reject-200
   - ^https?:\/\/e\.dangdang\.com\/.+?getDeviceStartPage - reject-200
   - ^https?:\/\/api\.gaoqingdianshi\.com\/api\/v\d\/ad\/ - reject-200
   - ^https?:\/\/cdn\.dianshihome\.com\/static\/ad\/ - reject-200
@@ -631,7 +631,7 @@ http:
   - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome - reject-200
   - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.popup\.get - reject-200
   - ^https?:\/\/vip7\.fzwdyy\.cn:8083\/api\/(getAdvertInfo|getGOOGAdvert) - reject-200
-  - ^https?:\/\/dq\.dxy\.cn\/api\.php\?action=getpostbanners - reject-200
+  - ^https?:\/\/dq\.dxy\.cn\/api\.php\?(?:[^#?&]+&)*action=getpostbanners - reject-200
   - ^https?:\/\/entree-ws\.igetget\.com\/oms\/front\/start\/push - reject-200
   - ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/startUpScreen - reject-200
   - ^https?:\/\/dj\.palmestore\.com\/zybk\/api\/ad - reject-200
@@ -649,8 +649,8 @@ http:
   - ^https?:\/\/gateway-api\.dushu365\.com\/chief-orch\/config\/config\/v100\/appConfig - reject-200
   - ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.allresource - reject-200
   - ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.availablesplashstrategies - reject-200
-  - ^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?module=advis - reject-200
-  - ^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=advis - reject-200
+  - ^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?(?:[^#?&]+&)*module=advis - reject-200
+  - ^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?(?:[^#?&]+&)*module=advis - reject-200
   - ^https?:\/\/carapp\.gtmc\.com\.cn\/api\/appgtmc\/homePage\/HomePageAction\/queryHomePageImg\.json - reject-200
   - ^https?:\/\/app\.flymodem\.com\.cn\/Appapi\/Public\/welecome - reject-200
   - ^http:\/\/gateway2\.etnet\.com\.hk\/etnetApp\/theme\/seasonal\/v30\/theme.json - reject-200
@@ -661,7 +661,7 @@ http:
   - ^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ - reject-200
   - https://zone.guiderank-app.com/guiderank-web/app/ad/listLaunchADByCity.do - reject-200
   - https://guanyu.longfor.com/app-server/api/v1/main/start - reject-200
-  - ^https?:\/\/gha\.ghac\.cn\:8081\/base\/app\/api\/ad\/query\?adType - reject-200
+  - ^https?:\/\/gha\.ghac\.cn\:8081\/base\/app\/api\/ad\/query\?(?:[^#?&]+&)*adType - reject-200
   - ^https?:\/\/dili\.bdatu\.com\/jiekou\/ad - reject-200
   - ^https?:\/\/wap\.ngchina\.cn\/news\/adverts - reject-200
   - ^https?:\/\/fuwu\.nhsa\.gov\.cn\/ebus\/fuwu\/api\/base\/cms\/iep\/web\/cms\/hmpgcfg\/queryAppHmpgCfgByApp - reject-200
@@ -695,7 +695,7 @@ http:
   - ^https?:\/\/prod\.zh\.igpsport\.com\/.+\/GetStartAd - reject-200
   - ^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/channel\/module\/opens - reject-200
   - ^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/popup - reject-200
-  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(start|queryMaterialAdverts) - reject-200
+  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=(start|queryMaterialAdverts) - reject-200
   - ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ - reject-200
   - ^https?:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/(new)?na\/m\/getLoadingPicture - reject-200
   - ^https:\/\/router-app-api\.jdcloud\.com\/v\d\/board\/routerAppSplash - reject-200
@@ -703,12 +703,12 @@ http:
   - ^https?:\/\/api\.tipsoon\.com\/api\/v\d\/top\/ad - reject-200
   - ^https?:\/\/creditcardapp\.bankcomm\.com\/mapp\/common\/(queryGuidePageAds|getPopAds)\.do$ - reject-200
   - ^https?:\/\/img\.jiemian\.com\/ads\/ - reject-200
-  - ^https?:\/\/mobile-consumer\.jetour\.com\.cn\/web\/position\/details\?pageCode=Splashscreens - reject-200
+  - ^https?:\/\/mobile-consumer\.jetour\.com\.cn\/web\/position\/details\?(?:[^#?&]+&)*pageCode=Splashscreens - reject-200
   - ^https?:\/\/explorer\.tratao\.com\/api\/client\/v4\/xtransfer\/ad\/ - reject-200
   - ^https?:\/\/api\.jxedt\.com\/ad\/ - reject-200
   - ^https?:\/\/\w+\.kakamobi\.cn\/api\/open\/v\d\/advert-sdk\/ - reject-200
-  - ^https?:\/\/yunbusiness\.ccb\.com\/clp_service\/txCtrl\?txcode=A3341A00(2|9) - reject-200
-  - ^https?:\/\/superapp\.xgimi\.com\/api/v1\/app\/ad\/configs\?_sort=createdAt:Adesc - reject-200
+  - ^https?:\/\/yunbusiness\.ccb\.com\/clp_service\/txCtrl\?(?:[^#?&]+&)*txcode=A3341A00(2|9) - reject-200
+  - ^https?:\/\/superapp\.xgimi\.com\/api/v1\/app\/ad\/configs\?(?:[^#?&]+&)*_sort=createdAt:Adesc - reject-200
   - ^https?:\/\/adv\.ccb\.com\/ebda\/ctm_adv - reject-200
   - ^https?:\/\/switch\.jumpvg\.com\/jump\/(getlaunchad|recommend\/ad_conf) - reject-200
   - ^https?:\/\/api\.smart\.jd\.com\/c\/service\/getLoadingLinks - reject-200
@@ -722,8 +722,8 @@ http:
   - ^https?:\/\/api\.vistopia\.com\.cn\/api\/v\d\/home\/advertisement - reject
   - https://open3.vistastory.com/v3/api/index/loading_ad - reject-200
   - https://open3.vistastory.com/v3/api.*get_popup - reject-200
-  - ^https?:\/\/gateway\.abite\.com\/cotti-capi\/customer\/position\/list\?code=cotti-launch-window - reject-200
-  - ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list\?code=cotti-launch-window - reject-200
+  - ^https?:\/\/gateway\.abite\.com\/cotti-capi\/customer\/position\/list\?(?:[^#?&]+&)*code=cotti-launch-window - reject-200
+  - ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list\?(?:[^#?&]+&)*code=cotti-launch-window - reject-200
   - ^https?:\/\/hc-ssp\.sm\.cn - reject-200
   - ^https?:\/\/api\.kmovie\.gifshow\.com\/rest\/n\/kmovie\/app\/(resource|banner) - reject-200
   - ^https?:\/\/www\.kujiale\.com\/app\/queryOpenPage - reject-200
@@ -754,10 +754,10 @@ http:
   - ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ - reject-200
   - ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) - reject-200
   - ^https?:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg - reject-200
-  - ^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp - reject-200
+  - ^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?(?:[^#?&]+&)*may_covertWebp - reject-200
   - ^https?:\/\/img\.meituan\.net\/(bizad|brandCpt)\/\w+\.(png|jpg) - reject-200
-  - ^https?:\/\/.*\.meituan\.com\/api\/v\d\/(openscreen\?ad|appstatus\?ad|loadInfo\?|startpicture) - reject-200
-  - ^http:\/\/s3plus\.meituan\.net\/.*\/brandcpt-vedio\/.*\?time - reject-200
+  - ^https?:\/\/.*\.meituan\.com\/api\/v\d\/(openscreen\?(?:[^#?&]+&)*ad|appstatus\?(?:[^#?&]+&)*ad|loadInfo\?|startpicture) - reject-200
+  - ^http:\/\/s3plus\.meituan\.net\/.*\/brandcpt-vedio\/.*\?(?:[^#?&]+&)*time - reject-200
   - ^https?:\/\/capi.mwee.cn\/app-api\/V12\/app\/getstartad - reject-200
   - ^https://mapi.mafengwo.cn\/ad\/get_launch_ad_list\/v2 - reject-200
   - ^https?:\/\/mob\.mddcloud\.com\.cn\/adApi\/advert - reject-200
@@ -775,8 +775,8 @@ http:
   - ^https?:\/\/axxd\.xmseeyouyima\.com\/v\d\/getad - reject-200
   - ^https?:\/\/ad\.seeyouyima\.com - reject-200
   - ^https?:\/\/app\.c\.nf\.migu\.cn\/.*column\/start(-)?up-pic - reject-200
-  - ^https?:\/\/p0\.pipi\.cn\/mediaplus\/maoyantong_ads_fe\/(0fa3345c|2erwqe2f)\w+.jpg\?imageMogr2\/quality\/85 - reject
-  - ^https?:\/\/vod\.pipi\.cn\/\w+\/\w+\/f0\.mp4\?__reqTraceID=.*?optimus_code=10 - reject
+  - ^https?:\/\/p0\.pipi\.cn\/mediaplus\/maoyantong_ads_fe\/(0fa3345c|2erwqe2f)\w+.jpg\?(?:[^#?&]+&)*imageMogr2\/quality\/85 - reject
+  - ^https?:\/\/vod\.pipi\.cn\/\w+\/\w+\/f0\.mp4\?(?:[^#?&]+&)*__reqTraceID=.*?optimus_code=10 - reject
   - ^https?:\/\/comicapi\.manhuashe\.com\/v\d\/(ads\/adstrategys|public\/startupactivity) - reject-200
   - ^https?:\/\/api\.mcd\.cn\/bff\/portal\/(richpop|home\/splash) - reject-200
   - ^https?:\/\/api\.merach\.com\/app\/AppAdvertisingController\/getAdvert - reject-200
@@ -790,8 +790,8 @@ http:
   - ^https?:\/\/creditcardapp\.bankcomm\.com\/mappweb.*(Advert|Ads).do - reject-200
   - ^https?:\/\/api\.bevol\.com\/appmain\/app\/home\/launch - reject-200
   - ^https?:\/\/3g\.csair\.com\/CSMBP\/bookProcess\/homepopup\/queryAdvertisement - reject-200
-  - ^https?:\/\/.*zhijianmedia\.cn\/streamAd\/ad\/getAd\?position=SplashScreen - reject-200
-  - ^https?:\/\/.*zhijianmedia\.cn\/streamAd\/ad\/getAd\?position=HomepageNewsPosition - reject
+  - ^https?:\/\/.*zhijianmedia\.cn\/streamAd\/ad\/getAd\?(?:[^#?&]+&)*position=SplashScreen - reject-200
+  - ^https?:\/\/.*zhijianmedia\.cn\/streamAd\/ad\/getAd\?(?:[^#?&]+&)*position=HomepageNewsPosition - reject
   - ^https?:\/\/.*ziben\.com\/api\/.*\/adverts - reject
   - ^https?:\/\/103\.91\.210\.141\:2515\/xgapp\.php\/v2\/top_notice - reject-200
   - ^http:\/\/app\.api\.d3yuiw4\.com\/api\/app\/ad - reject-200
@@ -807,9 +807,9 @@ http:
   - ^https?:\/\/www\.pansearch\.me\/api\/adsite - reject-dict
   - ^https?:\/\/m\.stock\.pingan\.com\/restapi\/rmd\/open\/O\/api\/openAd - reject-200
   - ^https?:\/\/pjlapi\.paojd\.cn\/na\/pjlNa - reject-200
-  - ^https:\/\/us\.l\.qq\.com\/exapp\?spsa=\d - reject-200
+  - ^https:\/\/us\.l\.qq\.com\/exapp\?(?:[^#?&]+&)*spsa=\d - reject-200
   - https://homefront.qunar.com/front/splash/ad - reject-200
-  - ^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject-200
+  - ^https?:\/\/client\.qunar\.com\/pitcher-proxy\?(?:[^#?&]+&)*qrt=p_splashAd - reject-200
   - ^https?:\/\/adproxy.autohome.com.cn\/AdvertiseService\/ - reject-200
   - ^https?:\/\/app2.autoimg.cn\/appdfs\/ - reject-200
   - ^https?:\/\/magev\d\.if\.qidian\.com\/argus\/api\/v\d\/client\/getsplashscreen - reject-200
@@ -828,7 +828,7 @@ http:
   - ^https?:\/\/.*dongfeng-nissan\.com\.cn\/mb-gw\/vmsp-discover\/rest\/business-service\/v\d\/adver - reject-200
   - ^https?:\/\/sdk\.tianmu\.mobi\/ad - reject-200
   - ^https?:\/\/app\.yuebuy\.cn\/api\/Portal\/startUp - reject
-  - https://ios.sspai.com/api/v3/recommend/page/get\?ad.*ios_home_modal - reject-200
+  - https://ios.sspai.com/api/v3/recommend/page/get\?(?:[^#?&]+&)*ad.*ios_home_modal - reject-200
   - ^https://mapi.sfbest.com\/brokerservice-server\/cms\/getPositionById.* - reject-200
   - ^https?:\/\/api\d?\.musical\.ly\/api\/ad\/ - reject-img
   - https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig - reject-200
@@ -850,7 +850,7 @@ http:
   - ^https?:\/\/t1\.market\.xiaomi\.com\/thumbnail\/webp\/w1170q100\/ - reject-200
   - ^https?:\/\/api\.cloud\.189\.cn\/guns\/getOpenscreenBanners - reject-200
   - ^https?:\/\/zconfig\.alibabausercontent\.com\/zconfig - reject-200
-  - ^https://otheve.beacon.qq.com\/analytics\/upload\?sid=.* - reject-200
+  - ^https://otheve.beacon.qq.com\/analytics\/upload\?(?:[^#?&]+&)*sid=.* - reject-200
   - ^https?:\/\/m\.tuniu\.com\/api\/operation\/splash\/ - reject-200
   - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise\/ - reject-200
   - ^https?:\/\/appactive\.1234567\.com\.cn\/AppoperationApi\/OperationService\/GetAppStartImg - reject-200
@@ -884,7 +884,7 @@ http:
   - ^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info - reject-200
   - ^https?:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword - reject-200
   - ^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList) - reject-200
-  - ^https?:\/\/overseas.weico.cc\/portal.php\?a=get_coopen_ads - reject-200
+  - ^https?:\/\/overseas.weico.cc\/portal.php\?(?:[^#?&]+&)*a=get_coopen_ads - reject-200
   - ^https?:\/\/easyreadfs\.nosdn\.127\.net\/ad-material\/ - reject-200
   - ^https?:\/\/sp\.kaola\.com\/api\/openad - reject-200
   - ^https?:\/\/gw\.kaola\.com\/gw\/dgmobile\/newOpenAd - reject-200
@@ -898,20 +898,20 @@ http:
   - ^https?:\/\/m\.mynj\.cn:\d+\/znmh_FEP\/loadpic\.jsp.*ad_pic.*open - reject
   - ^https?:\/\/rfs-fitness\.rfsvr\.net\/indoor\/v\d\/app\/adverts - reject
   - ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/GetIndexPopFlash - reject-200
-  - ^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?type=splashAd - reject-200
+  - ^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?(?:[^#?&]+&)*type=splashAd - reject-200
   - ^https?:\/\/api.psy-1.com\/cosleep\/startup - reject-200
   - ^https:\/\/ma-adx\.ctrip\.com\/_ma\.gif - reject-200
-  - ^https:\/\/mbd\.baidu\.com\/newspage\/api\/getmobads\?page\=landingshare - reject-200
+  - ^https:\/\/mbd\.baidu\.com\/newspage\/api\/getmobads\?(?:[^#?&]+&)*page\=landingshare - reject-200
   - ^https?:\/\/lchttpapi\.xczim\.com\/1\.1\/functions\/getLaunchImageForIOS - reject-200
   - ^https://api.xiaoyi.com\/v5\/app\/mobile\/ads - reject-200
-  - ^https://api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject-200
+  - ^https://api.xiaoyi.com\/v5\/app\/config\?(?:[^#?&]+&)*userid=.* - reject-200
   - ^https:\/\/api\.xiachufang\.com\/v\d\/ad/ - reject-200
   - ^https?:\/\/mpos-pic\.helipay\.com\/upload\/images\/advertisment - reject-200
   - ^https?:\/\/api\.m\.mi\.com\/v1\/app\/start - reject-200
   - ^https?:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/splash - reject-200
   - ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject-200
   - ^https?:\/\/pzoap\.moedot\.net\/xgapp\.php\/v2\/top_notice - reject-200
-  - ^https?:\/\/client-api\.oray\.com\/materials\/SLCC_IOS_STARTUP\?lang=zh-Hans-CN - reject-200
+  - ^https?:\/\/client-api\.oray\.com\/materials\/SLCC_IOS_STARTUP\?(?:[^#?&]+&)*lang=zh-Hans-CN - reject-200
   - ^https?:\/\/api\.xueqiu\.com\/snowpard\/launch_strategy\/query\.json - reject-200
   - ^https?:\/\/.*yuanfudao\.com\/iphone\/splashes - reject-200
   - ^https?:\/\/.*yuanfudao\.com\/leo-mis\/iphone\/splashes - reject-200
@@ -921,7 +921,7 @@ http:
   - ^https?:\/\/ad\.cj\.sina\.cn\/(osa\/adpreload|fax\/impress) - reject-200
   - ^https?:\/\/qcwx\.medproad\.com:8080\/ad\/ - reject-200
   - ^https?:\/\/shop-api\.retail\.mi\.com\/mtop\/navi\/skywheel\/mishop\/splash - reject-200
-  - ^https?:\/\/xapi\.xinmanhua\.net\/splashgroups\?include=splashs - reject-200
+  - ^https?:\/\/xapi\.xinmanhua\.net\/splashgroups\?(?:[^#?&]+&)*include=splashs - reject-200
   - ^https?:\/\/cmt\.comp\.360os\.com\/adv - reject-200
   - ^https?:\/\/www\.xqpark\.cn\/xqParkApp\/resource\/getResource - reject-200
   - ^https?:\/\/mobileapi\.xiamenair\.com\/mobile-starter\/.+\/getStartAD - reject-200
@@ -950,9 +950,9 @@ http:
   - ^https?:\/\/m\.msyc\.cc\/app\/getBootPage\/v\d - reject-200
   - ^https?:\/\/1jietu\.com\/apiv\d\/ad - reject-200
   - ^https?:\/\/entry\.ubixioe\.com\/mob\/sdk\/v\d\/endpoint - reject-200
-  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=home_launchConfig - reject-200
+  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#?&]+&)*functionId=home_launchConfig - reject-200
   - ^https?:\/\/api\.medlive\.cn\/promotion-api/adlist - reject-200
-  - ^https?:\/\/promotion\.medlive\.cn\/getcover-v2\?app_name - reject-200
+  - ^https?:\/\/promotion\.medlive\.cn\/getcover-v2\?(?:[^#?&]+&)*app_name - reject-200
   - ^https?:\/\/api\.ys7\.com\/api\/ads - reject-200
   - ^https?:\/\/cdke\.youdao\.com\/course3\/recommend\/dict\/startup - reject-200
   - ^https?:\/\/gorgon\.youdao\.com\/gorgon - reject-200
@@ -971,15 +971,15 @@ http:
   - ^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) - reject-200
   - ^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) - reject-200
   - ^https?:\/\/gx\.10086\.cn\/zt-portal\/gxhzg\/portal\/app\/api\/v - reject-200
-  - ^https?:\/\/api\.ahmobile\.cn:443\/eip\?eip_serv_id=app\.getAllNew - reject-200
+  - ^https?:\/\/api\.ahmobile\.cn:443\/eip\?(?:[^#?&]+&)*eip_serv_id=app\.getAllNew - reject-200
   - ^https?:\/\/app\.zhuanzhuan\.com\/zzx\/transfer\/getConfigInfo - reject-200
   - ^https?:\/\/a\.qiumibao\.com\/activities\/config\.php$ - reject-200
-  - ^https?:\/\/a\.qiumibao\.com\/ios\/config\/\?version_code= - reject-200
+  - ^https?:\/\/a\.qiumibao\.com\/ios\/config\/\?(?:[^#?&]+&)*version_code= - reject-200
   - ^https?:\/\/syh\.zybang\.com\/com\/adx\/ - reject-200
   - ^https?:\/\/adapi\.izuiyou\.com\/ - reject-200
   - ^https?:\/\/api\.izuiyou\.com\/ad\/ - reject-200
   - ^https?:\/\/adx-cn\.anythinktech\.com\/bid - reject-200
-  - ^https?:\/\/djcapp\.game\.qq\.com\/daoju\/igw\/main\/\?_service=welink\.ad\.list - reject-200
+  - ^https?:\/\/djcapp\.game\.qq\.com\/daoju\/igw\/main\/\?(?:[^#?&]+&)*_service=welink\.ad\.list - reject-200
   - ^https?:\/\/ih2\.ireader\.com\/zyapi\/bookstore\/ad - reject-200
   - ^https?:\/\/ih2\.ireader\.com\/zyapi\/self\/screen\/ad - reject-200
   - ^https?:\/\/ih2\.ireader\.com\/zycl\/api\/ad - reject-200
@@ -989,9 +989,9 @@ http:
   - ^https?:\/\/[a-zA-Z0-9_-]+\.ranfenghd\.com\/ad - reject-200
   - ^https?:\/\/[a-zA-Z0-9_-]+\.tianmu\.mobi\/ad - reject-200
   - ^https?:\/\/[a-zA-Z0-9_-]+\.weathercn\.com\/(.*bypage|appindexicon) - reject-200
-  - ^https?:\/\/zjdr666\.com\/zjdr\.php\/v\d\/(version|top_notice\?|advert\?position=[^2]+) - reject-200
+  - ^https?:\/\/zjdr666\.com\/zjdr\.php\/v\d\/(version|top_notice\?|advert\?(?:[^#?&]+&)*position=[^2]+) - reject-200
   - ^https?:\/\/mlol\.qt\.qq\.com\/go\/recommend\/(?!v) - reject-200
-  - ^https?:\/\/gd\.10086\.cn\/gmccapp\/serv\/\?servicename=GMCCAPP_704_002_001_001 - reject-200
+  - ^https?:\/\/gd\.10086\.cn\/gmccapp\/serv\/\?(?:[^#?&]+&)*servicename=GMCCAPP_704_002_001_001 - reject-200
   - ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/\d+\/scjson\/tripAds - reject-200
   - ^https?:\/\/zjmbank\.js96008\.com:8090\/gw\/advert\/oprAdvertQry - reject-200
   - ^https?:\/\/.*zhangyuyidong\.cn\/api\/ - reject-200
@@ -1069,8 +1069,8 @@ http:
   - ^https?:\/\/(preload-click|preload-impression)\.uve\.weibo\.com\/(interface\/wbpullad\/wbpullad_click\.php|wbapplua\/get_wbpullad_log\.lua) - reject
   - ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
   - ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight - reject-dict
-  - ^https?:\/\/api\.weibo\.cn\/\d\/cardlist\?v_f=.*Weibo_intl - reject-dict
-  - ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users - reject-dict
+  - ^https?:\/\/api\.weibo\.cn\/\d\/cardlist\?(?:[^#?&]+&)*v_f=.*Weibo_intl - reject-dict
+  - ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?(?:[^#?&]+&)*a=hot_search_users - reject-dict
   - ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? - reject-dict
   - ^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\/recommend_info\? - reject-200
   - ^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash - reject-200
@@ -1100,8 +1100,7 @@ http:
   - ^https?:\/\/.*\.xima.*\.com\/(hub)?guideWord - reject
   - ^https?:\/\/.*\.xima.*\.com\/api\/v\d\/adRealTime - reject
   - ^https?:\/\/.*\.xima.*\.com\/ting\/(loading|feed|home)? - reject
-  - https://api.juxingclub.com/storage/business/rootName/app/homePage\?dataType=JSON - reject-dict
-  - ^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch - reject-200
+  - https://api.juxingclub.com/storage/business/rootName/app/homePage\?(?:[^#?&]+&)*dataType=JSON - reject-dict
   - ^https?:\/\/118\.89\.204\.198 - reject-dict
   - ^https?:\/\/103\.41\.167\.237 - reject-dict
   - ^https?:\/\/2402:4e00:1200:ed00:0:9089:6dac:96b6 - reject-200
@@ -1164,24 +1163,6 @@ http:
   - ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash - reject-dict
   - ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
   body-rewrite:
-  - https://beta-api.crunchyroll.com/cms response-replace-regex offset_ms":\d+ offset_ms":99999999999999
-  - ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/getAd response-replace-regex rt_time":\d{2} rt_time":40
-  - ^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist response-replace-regex adv ddgksf2013
-  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising response-replace-regex jdLiteAdvertisingVO ddgksf2013
-  - ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush response-replace-regex pushData ddgksf2013
-  - ^https?:\/\/res.kfc.com.cn\/CRM\/kfcad\/apphome6\/apphome.*json response-replace-regex bootStrapAd ddgksf2013
-  - ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx response-replace-regex splashAD ddgksf2013
-  - ^https?:\/\/careapi\.oclean\.com\/mall\/v\d\/User\/GetUserCenter response-replace-regex banner" ddgksf2013"
-  - ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v response-replace-regex launch_time_close":\d+ launch_time_close":1660716799999
-  - ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen response-replace-regex egin_time":"\d{4} egin_time":"2099
-  - ^https?:\/\/tft-app\.cdtft\.cn\/gateway-customer\/tftapp\/tft-ams\/api\/appAd response-replace-regex officialAdvertResultVo ddgksf2013
-  - '^https?:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*/builds/\d*/install request-replace-regex "storefrontId\" : \".*\"" "storefrontId\" : \"143441-1,29\""'
-  - ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad response-replace-regex advertisement ddgksf2013
-  - ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-replace-regex screenSplashAd ddgksf2013
-  - ^https?:\/\/apps\.workair\.cn\/app\/version response-replace-regex ads" ddgksf2013"
-  - ^https:\/\/gw\.xiaocantech\.com\/rpc response-replace-regex "vip_pop_up":0 "vip_pop_up":2
-  - ^(http|https):\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad response-replace-regex advertisement ddgksf2013
-  - ^http?:\/\/wallpaper.soutushenqi.com\/v\d\/config request-replace-regex config_key=stsq_ios_home_vipI config_key=
   - ^https?:\/\/api\.qeeniao\.com\/nap\/ad response-jq .data={}
   - ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba.*mytab response-jq .data.model.children |= map(select(.name | contains("营销") | not))
   - ^https?:\/\/api\.weibo\.cn\/\d\/ug\/checkin\/stream response-jq .items |= map(select(.category != "card"))
@@ -1228,790 +1209,1044 @@ http:
       grpc-status: '0'
   script:
   - match: ^https?:\/\/s-api.smzdm\.com\/sou\/search_default_keyword
-    name: APP启动页去广告1
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/app-api\.smzdm\.com\/util\/loading
-    name: APP启动页去广告2
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise
-    name: APP启动页去广告3
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home
-    name: APP启动页去广告4
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/haojia-api\.smzdm\.com\/home\/list
-    name: APP启动页去广告5
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/article_releated_modul
-    name: APP启动页去广告6
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/baike-api\.smzdm\.com\/home_v3\/list
-    name: APP启动页去广告7
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/s-api\.smzdm\.com\/sou\/list_v10
-    name: APP启动页去广告8
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags
-    name: APP启动页去广告9
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/zhiyou\.m\.smzdm\.com\/user\/vip\/ajax_get_banner
-    name: APP启动页去广告10
+    name: smzdm_json_7
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/api\.369cx\.cn\/v\d\/Splash\/GetSplashAd
-    name: APP启动页去广告11
+    name: dict_24
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
-    name: APP启动页去广告12
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/movie\/index_recommend
+    name: 555Ad_26
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/www\.123pan\.com\/s\/[0-9a-zA-Z=_/-]+\.html
-    name: APP启动页去广告13
+    name: 123pan_31
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
   - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
-    name: APP启动页去广告14
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
-    name: APP启动页去广告15
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$)
-    name: APP启动页去广告16
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads
-    name: APP启动页去广告17
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/audit\/home\/getCommonMixData
-    name: APP启动页去广告18
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362
-    name: APP启动页去广告19
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1
-    name: APP启动页去广告20
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*umetrip\.com\.cn\/gateway\/api\/umetrip\/native$
-    name: APP启动页去广告21
-    type: response
-    require-body: false
-    timeout: 10
-  - match: ^https?:\/\/.*cupid\.iqiyi\.com\/mixer\?
-    name: APP启动页去广告22
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/napi\.ithome\.com\/api\/news\/indexv\d\/iphone
-    name: APP启动页去广告23
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show
-    name: APP启动页去广告24
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms)
-    name: APP启动页去广告25
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.coolapk\.com\/v6\/(feed\/(replyList|detail)|main\/indexV8|dataList)
-    name: APP启动页去广告26
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
-    name: APP启动页去广告27
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms
-    name: APP启动页去广告28
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/mobilepaas\.abchina\.com\.cn:441\/mgw\.htm
-    name: APP启动页去广告29
-    type: response
-    require-body: false
-    timeout: 10
-  - match: ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position
-    name: APP启动页去广告30
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.jk\.cn\/m\.api
-    name: APP启动页去广告31
-    type: response
-    require-body: false
-    timeout: 10
-  - match: ^https?:\/\/apps\.teamair\.cn\/app\/version
-    name: APP启动页去广告32
-    type: response
-    require-body: true
-    timeout: 10
-  - match: https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow
-    name: APP启动页去广告33
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$
-    name: APP启动页去广告34
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise
-    name: APP启动页去广告35
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/apiproxy\.zuche\.com\/resource\/cardes\/toufang\/marketing
-    name: APP启动页去广告36
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/commercial_api.*launch_v2
-    name: APP启动页去广告37
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: APP启动页去广告38
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list
-    name: APP启动页去广告39
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable
-    name: APP启动页去广告40
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart
-    name: APP启动页去广告41
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource
-    name: APP启动页去广告42
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page
-    name: APP启动页去广告43
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
-    name: APP启动页去广告44
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull
-    name: APP启动页去广告45
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
-    name: APP启动页去广告46
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword
-    name: APP启动页去广告47
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do
-    name: APP启动页去广告48
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2
-    name: APP启动页去广告49
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: APP启动页去广告50
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch
-    name: APP启动页去广告51
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.homepage\.merge\.get\.cn
-    name: APP启动页去广告52
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn
-    name: APP启动页去广告53
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword
-    name: APP启动页去广告54
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/biz\.cyapi\.cn\/api\/v\d\/user_detail
-    name: APP启动页去广告55
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/biz\.cyapi\.cn\/v\d\/user
-    name: APP启动页去广告56
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/wrapper\.cyapi\.cn\/v\d\/activity
-    name: APP启动页去广告57
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.caiyunapp\.com\/v\d\/activity
-    name: APP启动页去广告58
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/homefeatures
-    name: APP启动页去广告59
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/notification/message_center
-    name: APP启动页去广告60
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/config/cypage
-    name: APP启动页去广告61
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/feeds
-    name: APP启动页去广告62
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/banners
-    name: APP启动页去广告63
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/features
-    name: APP启动页去广告64
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/campaigns
-    name: APP启动页去广告65
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/sapphire\.api\.microsoftapp\.net\/config\/api\/v1\/get
-    name: APP启动页去广告66
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$
-    name: APP启动页去广告67
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic
-    name: APP启动页去广告68
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/course
-    name: APP启动页去广告69
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/home\/framework\/tab
-    name: APP启动页去广告70
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show
-    name: APP启动页去广告71
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/rcmd\/resource\/show
-    name: APP启动页去广告72
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ios\/upgrade\/get
-    name: APP启动页去广告73
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/default\/keyword\/list
-    name: APP启动页去广告74
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/rcmd\/keyword\/get
-    name: APP启动页去广告75
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/list
-    name: APP启动页去广告76
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/detail
-    name: APP启动页去广告77
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/suggest\/keyword\/get
-    name: APP启动页去广告78
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/specialkeyword\/get
-    name: APP启动页去广告79
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/get
-    name: APP启动页去广告80
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/current
-    name: APP启动页去广告81
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/get
-    name: APP启动页去广告82
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/position\/show\/resource
-    name: APP启动页去广告83
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/scene\/show\/resource
-    name: APP启动页去广告84
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vip\/cashier\/tspopup\/get
-    name: APP启动页去广告85
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vipnewcenter\/app\/resource\/newaccountpage
-    name: APP启动页去广告86
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/side-bar\/mini-program\/music-service\/account
-    name: APP启动页去广告87
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/deliver
-    name: APP启动页去广告88
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/batch-deliver
-    name: APP启动页去广告89
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/yunbei\/account\/entrance\/get
-    name: APP启动页去广告90
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/creator\/musician\/reminder\/message\/get
-    name: APP启动页去广告91
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/batch
-    name: APP启动页去广告92
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail
-    name: APP启动页去广告93
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d
-    name: APP启动页去广告94
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/preload
-    name: APP启动页去广告95
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.weibo\.cn\/\d\/\w{5}\/(statuses_unread_hot_timeline|timeline)
-    name: APP启动页去广告96
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.weibo\.cn\/\d\/video\/tiny_stream_mid_detail
-    name: APP启动页去广告97
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/\w{5}\/cardlist
-    name: APP启动页去广告98
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https://api.weibo.cn/2/!/client/light_skin
-    name: APP启动页去广告99
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https://new.vip.weibo.cn/littleskin/preview
-    name: APP启动页去广告100
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(searchall|page\?|0flowpage)
-    name: APP启动页去广告101
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(unread_)?friends(/|_)timeline
-    name: APP启动页去广告102
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/groups/timeline
-    name: APP启动页去广告103
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(container_timeline|unread_hot_timeline|extend|video_mixtimeline|unread_topic_timeline)
-    name: APP启动页去广告104
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/profile/(me|container_timeline)
-    name: APP启动页去广告105
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/video/(community_tab|remind_info|tiny_stream_video_list)
-    name: APP启动页去广告106
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover)
-    name: APP启动页去广告107
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|container/get_item)
-    name: APP启动页去广告108
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist
-    name: APP启动页去广告109
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=open_app
-    name: APP启动页去广告110
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=get_searching_info
-    name: APP启动页去广告111
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic
-    name: APP启动页去广告112
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads
-    name: APP启动页去广告113
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
-    name: APP启动页去广告114
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=trends
-    name: APP启动页去广告115
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center
-    name: APP启动页去广告116
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic
-    name: APP启动页去广告117
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories
-    name: APP启动页去广告134
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic
-    name: APP启动页去广告135
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix
-    name: APP启动页去广告136
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category
-    name: APP启动页去广告137
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage
-    name: APP启动页去广告138
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https:\/\/api.juxingclub.com\/ad\/getAll
-    name: APP启动页去广告139
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.juxingclub.com\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY
-    name: APP启动页去广告140
-    type: response
-    require-body: true
-    timeout: 10
-  - match: https://api.juxingclub.com/v3plus/index/channel\?pageNum=1&position=CHANNEL_INDEX
-    name: APP启动页去广告141
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.juxingclub.com\/app\/config\/h5NativeBar
-    name: APP启动页去广告142
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
-    name: APP启动页去广告143
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.coolapk.com\/v6\/dataList
-    name: APP启动页去广告144
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.coolapk.com\/v6\/main\/indexV8
-    name: APP启动页去广告145
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/replyList
-    name: APP启动页去广告146
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/detail
-    name: APP启动页去广告147
-    type: response
-    require-body: true
-    timeout: 10
-  - match: https://api.coolapk.com/v6/page/dataList\?.*title=%E9%85
-    name: APP启动页去广告148
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token)
-    name: APP启动页去广告149
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/people\/
-    name: APP启动页去广告150
-    type: response
-    require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/feed-root\/block
-    name: APP启动页去广告151
+    name: '12306_36'
     type: request
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/root\/tab\/v2
-    name: APP启动页去广告152
+    max-size: -1
+    timeout: 60
+  - match: ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/amdc\/mobileDispatch
+    name: amdc_42
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/(api|web-render)\.zhihu\.com\/topstory\/recommend
-    name: APP启动页去广告153
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$)
+    name: ahfs_43
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds?
-    name: APP启动页去广告154
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads
+    name: baidumap_46
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/next-render
-    name: APP启动页去广告155
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/audit\/home\/getCommonMixData
+    name: baishitv_66
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message|timeline\/entry\/system_message)
-    name: APP启动页去广告156
+    max-size: -1
+    timeout: 60
+  - match: https://beta-api.crunchyroll.com/cms
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?
-    name: APP启动页去广告157
+    max-size: -1
+    timeout: 30
+    argument: offset_ms%22%3A%5Cd%2B-%3Eoffset_ms%22%3A99999999999999
+  - match: ^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362
+    name: caixinads_78
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/(page-info|api)\.zhihu\.com\/answers\/v2\/\d+
-    name: APP启动页去广告158
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/getAd
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/api\.zhihu\.com\/articles\/v\d\/\d+
-    name: APP启动页去广告159
+    max-size: -1
+    timeout: 30
+    argument: rt_time%22%3A%5Cd%7B2%7D-%3Ert_time%22%3A40
+  - match: ^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/moments_v3\?
-    name: APP启动页去广告160
+    max-size: -1
+    timeout: 30
+    argument: adv-%3Eddgksf2013
+  - match: ^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1
+    name: fly_128
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists(\?|\/)
-    name: APP启动页去广告161
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*umetrip\.com\.cn\/gateway\/api\/umetrip\/native$
+    name: hanglvzongheng_156
+    type: response
+    timeout: 60
+  - match: ^https?:\/\/.*cupid\.iqiyi\.com\/mixer\?
+    name: iqiyi_open_ads_171
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/search\/preset_words\?
-    name: APP启动页去广告162
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/napi\.ithome\.com\/api\/news\/indexv\d\/iphone
+    name: ithome_173
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/api\.zhihu\.com\/search\/recommend_query
-    name: APP启动页去广告163
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show
+    name: startup_176
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/api\.zhihu\.com\/settings\/blocked_users
-    name: APP启动页去广告164
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms)
+    name: jd_json_179
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/www\.zhihu\.com\/api\/v4\/comment_v5\/answers\/\d+\/abstract_comment\?
-    name: APP启动页去广告165
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?)
-    name: APP启动页去广告166
+    max-size: -1
+    timeout: 30
+    argument: jdLiteAdvertisingVO-%3Eddgksf2013
+  - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd
-    name: APP启动页去广告167
+    max-size: -1
+    timeout: 30
+    argument: pushData-%3Eddgksf2013
+  - match: ^https?:\/\/res.kfc.com.cn\/CRM\/kfcad\/apphome6\/apphome.*json
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/(deeplink\/geturl|dailyrecommend\/getdailyrecommend)|v1\/(client\/getconf$|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab))
-    name: APP启动页去广告168
+    max-size: -1
+    timeout: 30
+    argument: bootStrapAd-%3Eddgksf2013
+  - match: ^https?:\/\/api\.coolapk\.com\/v6\/(feed\/(replyList|detail)|main\/indexV8|dataList)
+    name: coolapk_204
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
-    name: APP启动页去广告172
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
+    name: coolapk_204
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/gql-fed\.reddit\.com\/$
-    name: APP启动页去广告173
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms
+    name: quark_210
     type: response
     require-body: true
-    timeout: 10
-  - match: ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
-    name: APP启动页去广告174
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
-  - match: ^https?:\/\/.*chelaile\.net\.cn\/goocity\/city!
-    name: APP启动页去广告175
+    max-size: -1
+    timeout: 30
+    argument: splashAD-%3Eddgksf2013
+  - match: ^https?:\/\/mobilepaas\.abchina\.com\.cn:441\/mgw\.htm
+    name: abchina_286
+    type: response
+    timeout: 60
+  - match: ^https?:\/\/careapi\.oclean\.com\/mall\/v\d\/User\/GetUserCenter
+    name: replaceBody_68
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 30
+    argument: banner%22-%3Eddgksf2013%22
+  - match: ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: launch_time_close%22%3A%5Cd%2B-%3Elaunch_time_close%22%3A1660716799999
+  - match: ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position
+    name: pupumarket_299
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.jk\.cn\/m\.api
+    name: pinganads_303
+    type: response
+    timeout: 60
+  - match: ^https?:\/\/apps\.teamair\.cn\/app\/version
+    name: qidian_316
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow
+    name: shunfeng_json_332
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: egin_time%22%3A%22%5Cd%7B4%7D-%3Eegin_time%22%3A%222099
+  - match: ^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$
+    name: stay_338
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/apiproxy\.zuche\.com\/resource\/cardes\/toufang\/marketing
+    name: dict_24
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/tft-app\.cdtft\.cn\/gateway-customer\/tftapp\/tft-ams\/api\/appAd
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: officialAdvertResultVo-%3Eddgksf2013
+  - match: ^https?:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*/builds/\d*/install
+    name: replaceBody_68
+    type: request
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: storefrontId%22%20%3A%20%22.*%22-%3EstorefrontId%22%20%3A%20%22143441-1%2C29%22
+  - match: ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: advertisement-%3Eddgksf2013
+  - match: ^https?:\/\/lcen\.xiaote\.net\/api\/graphql
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: screenSplashAd-%3Eddgksf2013
+  - match: ^https?:\/\/apps\.workair\.cn\/app\/version
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: ads%22-%3Eddgksf2013%22
+  - match: ^https:\/\/gw\.xiaocantech\.com\/rpc
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: '%22vip_pop_up%22%3A0-%3E%22vip_pop_up%22%3A2'
+  - match: ^https?:\/\/api\.zhihu\.com\/commercial_api.*launch_v2
+    name: zhihu_openads_491
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
   - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: APP启动页去广告178
+    name: amdc_42
     type: response
     require-body: true
-    timeout: 10
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword
+    name: amap_527
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^(http|https):\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
+    name: replaceBody_68
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: advertisement-%3Eddgksf2013
+  - match: ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do
+    name: zhangshanggongjiao_545
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}(:\d+)?/wp-json/[a-zA-Z0-9_-]+/(mp\/)?v\d/posts
+    name: applet_546
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch
+    name: cainiao_json_548
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.homepage\.merge\.get\.cn
+    name: cainiao_json_548
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn
+    name: cainiao_json_548
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword
+    name: cainiao_json_548
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/biz\.cyapi\.cn\/api\/v\d\/user_detail
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/biz\.cyapi\.cn\/v\d\/user
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/wrapper\.cyapi\.cn\/v\d\/activity
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.caiyunapp\.com\/v\d\/activity
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/homefeatures
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/notification/message_center
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/config/cypage
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/feeds
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/banners
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/features
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/campaigns
+    name: caiyun_json_560
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/sapphire\.api\.microsoftapp\.net\/config\/api\/v1\/get
+    name: bing_572
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$
+    name: keepStyle_590
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic
+    name: keepStyle_590
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/course
+    name: keepStyle_590
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/home\/framework\/tab
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/rcmd\/resource\/show
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ios\/upgrade\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/default\/keyword\/list
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/rcmd\/keyword\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/list
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/detail
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/suggest\/keyword\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/specialkeyword\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/current
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/position\/show\/resource
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/scene\/show\/resource
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vip\/cashier\/tspopup\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vipnewcenter\/app\/resource\/newaccountpage
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/side-bar\/mini-program\/music-service\/account
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/deliver
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/batch-deliver
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/yunbei\/account\/entrance\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/creator\/musician\/reminder\/message\/get
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/batch
+    name: netease.adblock_593
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/preload
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.weibo\.cn\/\d\/\w{5}\/(statuses_unread_hot_timeline|timeline)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.weibo\.cn\/\d\/video\/tiny_stream_mid_detail
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/\w{5}\/cardlist
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https://api.weibo.cn/2/!/client/light_skin
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https://new.vip.weibo.cn/littleskin/preview
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(searchall|page\?|0flowpage)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(unread_)?friends(/|_)timeline
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/groups/timeline
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(container_timeline|unread_hot_timeline|extend|video_mixtimeline|unread_topic_timeline)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/profile/(me|container_timeline)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/video/(community_tab|remind_info|tiny_stream_video_list)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|container/get_item)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=open_app
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=get_searching_info
+    name: weibo_search_info_669
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic
+    name: weibo_search_topic_670
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=trends
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic
+    name: weibo_json_633
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories
+    name: ximalaya_json_701
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic
+    name: ximalaya_json_701
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix
+    name: ximalaya_json_701
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category
+    name: ximalaya_json_701
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage
+    name: ximalaya_json_701
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/api.juxingclub.com\/ad\/getAll
+    name: rrtv_json_725
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.juxingclub.com\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY
+    name: rrtv_json_725
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: https://api.juxingclub.com/v3plus/index/channel\?pageNum=1&position=CHANNEL_INDEX
+    name: rrtv_json_725
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.juxingclub.com\/app\/config\/h5NativeBar
+    name: rrtv_json_725
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
+    name: coolapk_730
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.coolapk.com\/v6\/dataList
+    name: coolapk_730
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.coolapk.com\/v6\/main\/indexV8
+    name: coolapk_730
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/replyList
+    name: coolapk_730
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/detail
+    name: coolapk_730
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: https://api.coolapk.com/v6/page/dataList\?.*title=%E9%85
+    name: coolapk_730
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token)
+    name: pixivAds_737
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/people\/
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/feed-root\/block
+    name: zheye.min_756
+    type: request
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/root\/tab\/v2
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/(api|web-render)\.zhihu\.com\/topstory\/recommend
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds?
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/next-render
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message|timeline\/entry\/system_message)
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/(page-info|api)\.zhihu\.com\/answers\/v2\/\d+
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/api\.zhihu\.com\/articles\/v\d\/\d+
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/moments_v3\?
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists(\?|\/)
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/search\/preset_words\?
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/api\.zhihu\.com\/search\/recommend_query
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https:\/\/api\.zhihu\.com\/settings\/blocked_users
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/www\.zhihu\.com\/api\/v4\/comment_v5\/answers\/\d+\/abstract_comment\?
+    name: zheye.min_756
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?)
+    name: tieba-json_772
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd
+    name: tieba-proto_773
+    type: response
+    require-body: true
+    max-size: -1
+    binary-mode: true
+    timeout: 60
+  - match: ^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/(deeplink\/geturl|dailyrecommend\/getdailyrecommend)|v1\/(client\/getconf$|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab))
+    name: qidian_774
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
+    name: '12306_790'
+    type: request
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/gql-fed\.reddit\.com\/$
+    name: reddit_791
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^https?:\/\/.*chelaile\.net\.cn\/goocity\/city!
+    name: chelaile_828
+    type: response
+    require-body: true
+    max-size: -1
+    timeout: 60
+  - match: ^http?:\/\/wallpaper.soutushenqi.com\/v\d\/config
+    name: replaceBody_68
+    type: request
+    require-body: true
+    max-size: -1
+    timeout: 30
+    argument: config_key%3Dstsq_ios_home_vipI-%3Econfig_key%3D
   - match: ^https:\/\/(?:biliverse\.github\.io|app\.bilibili\.com)\/api\/ADBlock(?:\?.*)?$
     name: PreferencePanes.Config.ADBlock
     type: request
@@ -2102,476 +2337,149 @@ http:
     binary-mode: true
     argument: null
 script-providers:
-  APP启动页去广告1:
+  smzdm_json_7:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  APP启动页去广告2:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告3:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告4:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告5:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告6:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告7:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告8:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告9:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告10:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告11:
+  dict_24:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/dict.js
     interval: 86400
-  APP启动页去广告12:
+  555Ad_26:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/555Ad.js
     interval: 86400
-  APP启动页去广告13:
+  123pan_31:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/123pan.js
     interval: 86400
-  APP启动页去广告14:
+  '12306_36':
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/12306.js
     interval: 86400
-  APP启动页去广告15:
+  amdc_42:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
-  APP启动页去广告16:
+  ahfs_43:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ahfs.js
     interval: 86400
-  APP启动页去广告17:
+  baidumap_46:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js
     interval: 86400
-  APP启动页去广告18:
+  baishitv_66:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/baishitv.js
     interval: 86400
-  APP启动页去广告19:
+  replaceBody_68:
+    url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-body.js
+    interval: 86400
+  caixinads_78:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caixinads.js
     interval: 86400
-  APP启动页去广告20:
+  fly_128:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/fly.js
     interval: 86400
-  APP启动页去广告21:
+  hanglvzongheng_156:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/hanglvzongheng.js
     interval: 86400
-  APP启动页去广告22:
+  iqiyi_open_ads_171:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/iqiyi_open_ads.js
     interval: 86400
-  APP启动页去广告23:
+  ithome_173:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ithome.js
     interval: 86400
-  APP启动页去广告24:
+  startup_176:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/startup.js
     interval: 86400
-  APP启动页去广告25:
+  jd_json_179:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/jd_json.js
     interval: 86400
-  APP启动页去广告26:
+  coolapk_204:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/coolapk.js
     interval: 86400
-  APP启动页去广告27:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/coolapk.js
-    interval: 86400
-  APP启动页去广告28:
+  quark_210:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/quark.js
     interval: 86400
-  APP启动页去广告29:
+  abchina_286:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/abchina.js
     interval: 86400
-  APP启动页去广告30:
+  pupumarket_299:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pupumarket.js
     interval: 86400
-  APP启动页去广告31:
+  pinganads_303:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pinganads.js
     interval: 86400
-  APP启动页去广告32:
+  qidian_316:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/qidian.js
     interval: 86400
-  APP启动页去广告33:
+  shunfeng_json_332:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js
     interval: 86400
-  APP启动页去广告34:
+  stay_338:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/stay.js
     interval: 86400
-  APP启动页去广告35:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
-    interval: 86400
-  APP启动页去广告36:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/dict.js
-    interval: 86400
-  APP启动页去广告37:
+  zhihu_openads_491:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhihu_openads.js
     interval: 86400
-  APP启动页去广告38:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
-    interval: 86400
-  APP启动页去广告39:
+  amap_527:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  APP启动页去广告40:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告41:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告42:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告43:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告44:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告45:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告46:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告47:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
-    interval: 86400
-  APP启动页去广告48:
+  zhangshanggongjiao_545:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js
     interval: 86400
-  APP启动页去广告49:
+  applet_546:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js
     interval: 86400
-  APP启动页去广告50:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
-    interval: 86400
-  APP启动页去广告51:
+  cainiao_json_548:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
     interval: 86400
-  APP启动页去广告52:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
-    interval: 86400
-  APP启动页去广告53:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
-    interval: 86400
-  APP启动页去广告54:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
-    interval: 86400
-  APP启动页去广告55:
+  caiyun_json_560:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  APP启动页去广告56:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告57:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告58:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告59:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告60:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告61:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告62:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告63:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告64:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告65:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
-    interval: 86400
-  APP启动页去广告66:
+  bing_572:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/bing.js
     interval: 86400
-  APP启动页去广告67:
+  keepStyle_590:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
     interval: 86400
-  APP启动页去广告68:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
-    interval: 86400
-  APP启动页去广告69:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
-    interval: 86400
-  APP启动页去广告70:
+  netease.adblock_593:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  APP启动页去广告71:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告72:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告73:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告74:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告75:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告76:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告77:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告78:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告79:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告80:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告81:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告82:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告83:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告84:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告85:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告86:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告87:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告88:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告89:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告90:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告91:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告92:
-    url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
-    interval: 86400
-  APP启动页去广告93:
+  weibo_json_633:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  APP启动页去广告94:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告95:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告96:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告97:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告98:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告99:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告100:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告101:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告102:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告103:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告104:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告105:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告106:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告107:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告108:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告109:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告110:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告111:
+  weibo_search_info_669:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_info.json
     interval: 86400
-  APP启动页去广告112:
+  weibo_search_topic_670:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_topic.json
     interval: 86400
-  APP启动页去广告113:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告114:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告115:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告116:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告117:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
-    interval: 86400
-  APP启动页去广告134:
+  ximalaya_json_701:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  APP启动页去广告135:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
-    interval: 86400
-  APP启动页去广告136:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
-    interval: 86400
-  APP启动页去广告137:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
-    interval: 86400
-  APP启动页去广告138:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
-    interval: 86400
-  APP启动页去广告139:
+  rrtv_json_725:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
-  APP启动页去广告140:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
-    interval: 86400
-  APP启动页去广告141:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
-    interval: 86400
-  APP启动页去广告142:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
-    interval: 86400
-  APP启动页去广告143:
+  coolapk_730:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  APP启动页去广告144:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
-    interval: 86400
-  APP启动页去广告145:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
-    interval: 86400
-  APP启动页去广告146:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
-    interval: 86400
-  APP启动页去广告147:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
-    interval: 86400
-  APP启动页去广告148:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
-    interval: 86400
-  APP启动页去广告149:
+  pixivAds_737:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pixivAds.js
     interval: 86400
-  APP启动页去广告150:
+  zheye.min_756:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  APP启动页去广告151:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告152:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告153:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告154:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告155:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告156:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告157:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告158:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告159:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告160:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告161:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告162:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告163:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告164:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告165:
-    url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-    interval: 86400
-  APP启动页去广告166:
+  tieba-json_772:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
     interval: 86400
-  APP启动页去广告167:
+  tieba-proto_773:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
     interval: 86400
-  APP启动页去广告168:
+  qidian_774:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js
     interval: 86400
-  APP启动页去广告172:
+  '12306_790':
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/12306.js
     interval: 86400
-  APP启动页去广告173:
+  reddit_791:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/reddit.js
     interval: 86400
-  APP启动页去广告174:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
-    interval: 86400
-  APP启动页去广告175:
+  chelaile_828:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/chelaile.js
-    interval: 86400
-  APP启动页去广告178:
-    url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
   PreferencePanes.Config.ADBlock:
     url: https://github.com/Biliverse/ADBlock/releases/download/v0.7.5/config.bundle.js
