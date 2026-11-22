@@ -1,6 +1,6 @@
-# 生成：2026-11-21，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
+# 生成：2026-11-22，生成器 build_override.py；上游 https://yfamilys.com/stoverride/startingad.stoverride、https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.stoverride
 name: 去广告（秋风＋墨鱼去开屏＋B站）
-desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-21；已去掉来源无法核实的脚本）。
+desc: 秋风广告规则拦广告域名（Stash 每天自动更新）；墨鱼 APP 启动页去广告、B站去广告（每天自动从上游重新生成，本版 2026-11-22；已去掉来源无法核实的脚本）。
 rule-providers:
   AWAvenue-Ads:
     behavior: classical
@@ -1209,1039 +1209,1039 @@ http:
       grpc-status: '0'
   script:
   - match: ^https?:\/\/s-api.smzdm\.com\/sou\/search_default_keyword
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/app-api\.smzdm\.com\/util\/loading
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/haojia-api\.smzdm\.com\/home\/list
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/article_releated_modul
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/baike-api\.smzdm\.com\/home_v3\/list
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/s-api\.smzdm\.com\/sou\/list_v10
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/zhiyou\.m\.smzdm\.com\/user\/vip\/ajax_get_banner
-    name: smzdm_json_7
+    name: smzdm_json_6
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.369cx\.cn\/v\d\/Splash\/GetSplashAd
-    name: dict_24
+    name: dict_23
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/movie\/index_recommend
-    name: 555Ad_26
+    name: 555Ad_25
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/www\.123pan\.com\/s\/[0-9a-zA-Z=_/-]+\.html
-    name: 123pan_31
+    name: 123pan_30
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
-    name: '12306_36'
+    name: '12306_35'
     type: request
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/amdc\/mobileDispatch
-    name: amdc_42
+    name: amdc_41
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$)
-    name: ahfs_43
+    name: ahfs_42
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads
-    name: baidumap_46
+    name: baidumap_45
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/audit\/home\/getCommonMixData
-    name: baishitv_66
+    name: baishitv_65
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: https://beta-api.crunchyroll.com/cms
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: offset_ms%22%3A%5Cd%2B-%3Eoffset_ms%22%3A99999999999999
   - match: ^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362
-    name: caixinads_78
+    name: caixinads_77
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/getAd
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: rt_time%22%3A%5Cd%7B2%7D-%3Ert_time%22%3A40
   - match: ^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: adv-%3Eddgksf2013
   - match: ^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1
-    name: fly_127
+    name: fly_126
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*umetrip\.com\.cn\/gateway\/api\/umetrip\/native$
-    name: hanglvzongheng_155
+    name: hanglvzongheng_154
     type: response
     timeout: 60
   - match: ^https?:\/\/.*cupid\.iqiyi\.com\/mixer\?
-    name: iqiyi_open_ads_170
+    name: iqiyi_open_ads_169
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/napi\.ithome\.com\/api\/news\/indexv\d\/iphone
-    name: ithome_172
+    name: ithome_171
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show
-    name: startup_175
+    name: startup_174
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms)
-    name: jd_json_178
+    name: jd_json_177
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: jdLiteAdvertisingVO-%3Eddgksf2013
   - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: pushData-%3Eddgksf2013
   - match: ^https?:\/\/res.kfc.com.cn\/CRM\/kfcad\/apphome6\/apphome.*json
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: bootStrapAd-%3Eddgksf2013
   - match: ^https?:\/\/api\.coolapk\.com\/v6\/(feed\/(replyList|detail)|main\/indexV8|dataList)
-    name: coolapk_203
+    name: coolapk_202
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
-    name: coolapk_203
+    name: coolapk_202
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms
-    name: quark_209
+    name: quark_208
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: splashAD-%3Eddgksf2013
   - match: ^https?:\/\/mobilepaas\.abchina\.com\.cn:441\/mgw\.htm
-    name: abchina_284
+    name: abchina_283
     type: response
     timeout: 60
   - match: ^https?:\/\/careapi\.oclean\.com\/mall\/v\d\/User\/GetUserCenter
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: banner%22-%3Eddgksf2013%22
   - match: ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: launch_time_close%22%3A%5Cd%2B-%3Elaunch_time_close%22%3A1660716799999
   - match: ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position
-    name: pupumarket_297
+    name: pupumarket_296
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.jk\.cn\/m\.api
-    name: pinganads_301
+    name: pinganads_300
     type: response
     timeout: 60
   - match: ^https?:\/\/apps\.teamair\.cn\/app\/version
-    name: qidian_314
+    name: qidian_313
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow
-    name: shunfeng_json_330
+    name: shunfeng_json_329
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: egin_time%22%3A%22%5Cd%7B4%7D-%3Eegin_time%22%3A%222099
   - match: ^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$
-    name: stay_336
+    name: stay_335
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/apiproxy\.zuche\.com\/resource\/cardes\/toufang\/marketing
-    name: dict_24
+    name: dict_23
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/tft-app\.cdtft\.cn\/gateway-customer\/tftapp\/tft-ams\/api\/appAd
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: officialAdvertResultVo-%3Eddgksf2013
   - match: ^https?:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*/builds/\d*/install
-    name: replaceBody_68
+    name: replaceBody_67
     type: request
     require-body: true
     max-size: -1
     timeout: 30
     argument: storefrontId%22%20%3A%20%22.*%22-%3EstorefrontId%22%20%3A%20%22143441-1%2C29%22
   - match: ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: advertisement-%3Eddgksf2013
   - match: ^https?:\/\/lcen\.xiaote\.net\/api\/graphql
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: screenSplashAd-%3Eddgksf2013
   - match: ^https?:\/\/apps\.workair\.cn\/app\/version
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: ads%22-%3Eddgksf2013%22
   - match: ^https:\/\/gw\.xiaocantech\.com\/rpc
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: '%22vip_pop_up%22%3A0-%3E%22vip_pop_up%22%3A2'
   - match: ^https?:\/\/api\.zhihu\.com\/commercial_api.*launch_v2
-    name: zhihu_openads_487
+    name: zhihu_openads_486
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^http:\/\/amdc\.m\.taobao\.com
-    name: amdc_42
+    name: amdc_41
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword
-    name: amap_523
+    name: amap_522
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^(http|https):\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
-    name: replaceBody_68
+    name: replaceBody_67
     type: response
     require-body: true
     max-size: -1
     timeout: 30
     argument: advertisement-%3Eddgksf2013
   - match: ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do
-    name: zhangshanggongjiao_541
+    name: zhangshanggongjiao_540
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}(:\d+)?/wp-json/[a-zA-Z0-9_-]+/(mp\/)?v\d/posts
-    name: applet_542
+    name: applet_541
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.app\.e2e\.engine\.page\.fetch
-    name: cainiao_json_543
+    name: cainiao_json_542
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.homepage\.merge\.get\.cn
-    name: cainiao_json_543
+    name: cainiao_json_542
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn
-    name: cainiao_json_543
+    name: cainiao_json_542
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/[a-zA-Z0-9_.-]+\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword
-    name: cainiao_json_543
+    name: cainiao_json_542
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/biz\.cyapi\.cn\/api\/v\d\/user_detail
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/biz\.cyapi\.cn\/v\d\/user
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/wrapper\.cyapi\.cn\/v\d\/activity
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.caiyunapp\.com\/v\d\/activity
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/homefeatures
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/notification/message_center
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/config/cypage
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/feeds
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/banners
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/operation/features
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/starplucker\.cyapi\.cn\/v\d/campaigns
-    name: caiyun_json_555
+    name: caiyun_json_554
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/sapphire\.api\.microsoftapp\.net\/config\/api\/v1\/get
-    name: bing_567
+    name: bing_566
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$
-    name: keepStyle_584
+    name: keepStyle_583
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic
-    name: keepStyle_584
+    name: keepStyle_583
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.gotokeep\.com\/twins\/v4\/feed\/course
-    name: keepStyle_584
+    name: keepStyle_583
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/home\/framework\/tab
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/rcmd\/resource\/show
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ios\/upgrade\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/default\/keyword\/list
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/rcmd\/keyword\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/list
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/detail
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/suggest\/keyword\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/specialkeyword\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/current
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/position\/show\/resource
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/scene\/show\/resource
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vip\/cashier\/tspopup\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vipnewcenter\/app\/resource\/newaccountpage
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/side-bar\/mini-program\/music-service\/account
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/deliver
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/batch-deliver
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/yunbei\/account\/entrance\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/creator\/musician\/reminder\/message\/get
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/batch
-    name: netease.adblock_587
+    name: netease.adblock_586
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/preload
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/\w{5}\/(statuses_unread_hot_timeline|timeline)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.weibo\.cn\/\d\/video\/tiny_stream_mid_detail
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/\w{5}\/cardlist
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https://api.weibo.cn/2/!/client/light_skin
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https://new.vip.weibo.cn/littleskin/preview
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(searchall|page\?|0flowpage)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(unread_)?friends(/|_)timeline
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/groups/timeline
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/statuses/(container_timeline|unread_hot_timeline|extend|video_mixtimeline|unread_topic_timeline)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/profile/(me|container_timeline)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/video/(community_tab|remind_info|tiny_stream_video_list)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|container/get_item)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=open_app
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=get_searching_info
-    name: weibo_search_info_662
+    name: weibo_search_info_661
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic
-    name: weibo_search_topic_663
+    name: weibo_search_topic_662
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=trends
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic
-    name: weibo_json_626
+    name: weibo_json_625
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories
-    name: ximalaya_json_694
+    name: ximalaya_json_693
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic
-    name: ximalaya_json_694
+    name: ximalaya_json_693
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix
-    name: ximalaya_json_694
+    name: ximalaya_json_693
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category
-    name: ximalaya_json_694
+    name: ximalaya_json_693
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage
-    name: ximalaya_json_694
+    name: ximalaya_json_693
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/api.juxingclub.com\/ad\/getAll
-    name: rrtv_json_718
+    name: rrtv_json_717
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.juxingclub.com\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY
-    name: rrtv_json_718
+    name: rrtv_json_717
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: https://api.juxingclub.com/v3plus/index/channel\?pageNum=1&position=CHANNEL_INDEX
-    name: rrtv_json_718
+    name: rrtv_json_717
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.juxingclub.com\/app\/config\/h5NativeBar
-    name: rrtv_json_718
+    name: rrtv_json_717
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.coolapk.com\/v6\/main\/init
-    name: coolapk_723
+    name: coolapk_722
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.coolapk.com\/v6\/dataList
-    name: coolapk_723
+    name: coolapk_722
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.coolapk.com\/v6\/main\/indexV8
-    name: coolapk_723
+    name: coolapk_722
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/replyList
-    name: coolapk_723
+    name: coolapk_722
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api.coolapk.com\/v6\/feed\/detail
-    name: coolapk_723
+    name: coolapk_722
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: https://api.coolapk.com/v6/page/dataList\?.*title=%E9%85
-    name: coolapk_723
+    name: coolapk_722
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token)
-    name: pixivAds_730
+    name: pixivAds_729
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/people\/
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/feed-root\/block
-    name: zheye.min_749
+    name: zheye.min_748
     type: request
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/root\/tab\/v2
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/(api|web-render)\.zhihu\.com\/topstory\/recommend
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/api\.zhihu\.com\/questions\/\d+\/feeds?
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/next-render
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message|timeline\/entry\/system_message)
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/(page-info|api)\.zhihu\.com\/answers\/v2\/\d+
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/api\.zhihu\.com\/articles\/v\d\/\d+
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/moments_v3\?
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists(\?|\/)
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/search\/preset_words\?
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/api\.zhihu\.com\/search\/recommend_query
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https:\/\/api\.zhihu\.com\/settings\/blocked_users
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/www\.zhihu\.com\/api\/v4\/comment_v5\/answers\/\d+\/abstract_comment\?
-    name: zheye.min_749
+    name: zheye.min_748
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?)
-    name: tieba-json_765
+    name: tieba-json_764
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/(b\/ad\/adBid|f\/(frs\/(page|threadlist|generalTabList)|ad\/getFeedAd|pb\/page|excellent\/personalized))\?cmd
-    name: tieba-proto_766
+    name: tieba-proto_765
     type: response
     require-body: true
     max-size: -1
     binary-mode: true
     timeout: 60
   - match: ^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/(v4\/client\/getsplashscreen|v2\/(deeplink\/geturl|dailyrecommend\/getdailyrecommend)|v1\/(client\/getconf$|bookshelf\/getHoverAdv|adv\/getadvlistbatch\?positions=iOS_tab))
-    name: qidian_767
+    name: qidian_766
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList
-    name: '12306_781'
+    name: '12306_780'
     type: request
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/gql-fed\.reddit\.com\/$
-    name: reddit_782
+    name: reddit_781
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^https?:\/\/.*chelaile\.net\.cn\/goocity\/city!
-    name: chelaile_817
+    name: chelaile_816
     type: response
     require-body: true
     max-size: -1
     timeout: 60
   - match: ^http?:\/\/wallpaper.soutushenqi.com\/v\d\/config
-    name: replaceBody_68
+    name: replaceBody_67
     type: request
     require-body: true
     max-size: -1
@@ -2337,148 +2337,148 @@ http:
     binary-mode: true
     argument: null
 script-providers:
-  smzdm_json_7:
+  smzdm_json_6:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js
     interval: 86400
-  dict_24:
+  dict_23:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/dict.js
     interval: 86400
-  555Ad_26:
+  555Ad_25:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/555Ad.js
     interval: 86400
-  123pan_31:
+  123pan_30:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/123pan.js
     interval: 86400
-  '12306_36':
+  '12306_35':
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/12306.js
     interval: 86400
-  amdc_42:
+  amdc_41:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js
     interval: 86400
-  ahfs_43:
+  ahfs_42:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ahfs.js
     interval: 86400
-  baidumap_46:
+  baidumap_45:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js
     interval: 86400
-  baishitv_66:
+  baishitv_65:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/baishitv.js
     interval: 86400
-  replaceBody_68:
+  replaceBody_67:
     url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-body.js
     interval: 86400
-  caixinads_78:
+  caixinads_77:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caixinads.js
     interval: 86400
-  fly_127:
+  fly_126:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/fly.js
     interval: 86400
-  hanglvzongheng_155:
+  hanglvzongheng_154:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/hanglvzongheng.js
     interval: 86400
-  iqiyi_open_ads_170:
+  iqiyi_open_ads_169:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/iqiyi_open_ads.js
     interval: 86400
-  ithome_172:
+  ithome_171:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ithome.js
     interval: 86400
-  startup_175:
+  startup_174:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/startup.js
     interval: 86400
-  jd_json_178:
+  jd_json_177:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/jd_json.js
     interval: 86400
-  coolapk_203:
+  coolapk_202:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/coolapk.js
     interval: 86400
-  quark_209:
+  quark_208:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/quark.js
     interval: 86400
-  abchina_284:
+  abchina_283:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/abchina.js
     interval: 86400
-  pupumarket_297:
+  pupumarket_296:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pupumarket.js
     interval: 86400
-  pinganads_301:
+  pinganads_300:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pinganads.js
     interval: 86400
-  qidian_314:
+  qidian_313:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/qidian.js
     interval: 86400
-  shunfeng_json_330:
+  shunfeng_json_329:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js
     interval: 86400
-  stay_336:
+  stay_335:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/stay.js
     interval: 86400
-  zhihu_openads_487:
+  zhihu_openads_486:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhihu_openads.js
     interval: 86400
-  amap_523:
+  amap_522:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js
     interval: 86400
-  zhangshanggongjiao_541:
+  zhangshanggongjiao_540:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js
     interval: 86400
-  applet_542:
+  applet_541:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js
     interval: 86400
-  cainiao_json_543:
+  cainiao_json_542:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js
     interval: 86400
-  caiyun_json_555:
+  caiyun_json_554:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js
     interval: 86400
-  bing_567:
+  bing_566:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/bing.js
     interval: 86400
-  keepStyle_584:
+  keepStyle_583:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js
     interval: 86400
-  netease.adblock_587:
+  netease.adblock_586:
     url: https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js
     interval: 86400
-  weibo_json_626:
+  weibo_json_625:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js
     interval: 86400
-  weibo_search_info_662:
+  weibo_search_info_661:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_info.json
     interval: 86400
-  weibo_search_topic_663:
+  weibo_search_topic_662:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_topic.json
     interval: 86400
-  ximalaya_json_694:
+  ximalaya_json_693:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js
     interval: 86400
-  rrtv_json_718:
+  rrtv_json_717:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/rrtv_json.js
     interval: 86400
-  coolapk_723:
+  coolapk_722:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/coolapk.js
     interval: 86400
-  pixivAds_730:
+  pixivAds_729:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pixivAds.js
     interval: 86400
-  zheye.min_749:
+  zheye.min_748:
     url: https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
     interval: 86400
-  tieba-json_765:
+  tieba-json_764:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
     interval: 86400
-  tieba-proto_766:
+  tieba-proto_765:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
     interval: 86400
-  qidian_767:
+  qidian_766:
     url: https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js
     interval: 86400
-  '12306_781':
+  '12306_780':
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/master/12306.js
     interval: 86400
-  reddit_782:
+  reddit_781:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/reddit.js
     interval: 86400
-  chelaile_817:
+  chelaile_816:
     url: https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/chelaile.js
     interval: 86400
   PreferencePanes.Config.ADBlock:
